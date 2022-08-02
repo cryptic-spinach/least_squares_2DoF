@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #3d3d3d;
+}
+
+.project-container {
+    position: relative;
+}
+
+.part-1DoF {
+    position: relative;
+}
+
+.stepper-buttons {
+    width: 90px;
+    height: 45px;
+    position: absolute;
+}
