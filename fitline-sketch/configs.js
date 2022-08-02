@@ -93,8 +93,8 @@ export let axisPalette = {
 }
 
 export let sliderConfig = { 
-    x: 186, 
-    y: 105,
+    x: 95, 
+    y: 434,
     min: -2,
     max: 2
 }

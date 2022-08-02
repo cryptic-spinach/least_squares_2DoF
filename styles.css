@@ -18,6 +18,18 @@ body {
     top: 20%;
 }
 
+.a-slider {
+    position: absolute;
+    left: 90%;
+    top: 85%;
+}
+
+.b-slider {
+    position: absolute;
+    left: 90%;
+    top: 90%;
+}
+
 .stepper-buttons {
     width: 90px;
     height: 45px;
