@@ -31,18 +31,6 @@ export function getTrendlineDisplay(myp5, stepper, trendline, point) {
     }
   }
 
-  export function getSliderDisplay(myp5, stepper, slider, sliderLabel) {
-    switch (stepper) {
-      case 1:
-        slider.style('opacity', '1');
-        sliderLabel.showLabel(myp5, sliderLabelConfig.labelFill);
-        break;
-      case 2:
-        slider.style('opacity', '1');
-        sliderLabel.showLabel(myp5, sliderLabelConfig.labelFill);
-        break;
-    }
-  }
 
 
 
