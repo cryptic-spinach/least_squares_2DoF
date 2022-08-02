@@ -100,7 +100,7 @@ export let sketch_1DoF = myp5 => {
 
   myp5.buttonsInit = () => {
     let ret = [];
-    let cnv = document.querySelector(".part-1DoF")
+    let cnv = document.querySelector(".fitline")
   
     for (let i = 0; i < 2; i++) {
       let stepperButton = document.createElement("button");
@@ -119,5 +119,3 @@ export let sketch_1DoF = myp5 => {
   }
 
 };
-
-// export let part_1DoF = new p5(sketch_1DoF, document.querySelector(".part-1DoF"));

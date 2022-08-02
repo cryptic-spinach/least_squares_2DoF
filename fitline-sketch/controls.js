@@ -31,6 +31,8 @@ export function opacityGUI(gui) {
 }
 
 export function xyGUI(gui) {
+    gui.add(sliderConfig, "x", 0, 700).name("slider x");
+    gui.add(sliderConfig, "y", -500, 500).name("slider y");
     gui.add(sliderLabelConfig, "x", 0, 700).name("label x");
     gui.add(sliderLabelConfig, "y", -500, 0).name("label y");
     gui.add(axisConfig, "x", -500, -100).name("axis x");
