@@ -1,15 +1,21 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #3d3d3d;
+    background-color: #131626;
 }
 
 .project-container {
     position: relative;
 }
 
-.part-1DoF {
+.fitline {
     position: relative;
+}
+
+.paraboloid {
+    position: absolute;
+    left: 55%;
+    top: 20%;
 }
 
 .stepper-buttons {
