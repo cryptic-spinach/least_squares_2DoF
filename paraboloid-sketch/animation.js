@@ -1,3 +1,6 @@
+import { fitline } from "../main.js"
+import { Point } from "../fitline-sketch/components.js"
+
 export let paraboloid_sketch = myp5 => {
 
     let v = []; //will store all (x,y,z) points of a parabola in here later
@@ -26,6 +29,7 @@ export let paraboloid_sketch = myp5 => {
       b_text = myp5.createDiv();
       myp5.b_slider = document.querySelector(".b-slider") // LB, UB, default, Step
     
+      console.log(fitline.linearFitPoints);
     }
     
     myp5.draw = () => {
@@ -36,7 +40,7 @@ export let paraboloid_sketch = myp5 => {
     
       let a_val = parseFloat(myp5.a_slider.value); // meters
       let b_val = parseFloat(myp5.b_slider.value); // meters
-    
+
       //Create (x,y,z) points of parabaloid
       for(let x_indx = 0; x_indx < cols+1; x_indx += 1) {
         v.push([]);
@@ -69,8 +73,6 @@ export let paraboloid_sketch = myp5 => {
         }
       }
     
-      a_text.html("a = " + myp5.a_slider.value);
-      b_text.html("b = " + myp5.b_slider.value);
       v = [];
       let f = parabola_Equation(a_val,b_val) * scale
       a_val = a_val * scale;
@@ -104,7 +106,7 @@ export let paraboloid_sketch = myp5 => {
     }
     
     function parabola_Equation(x,y) {
-      return x*x/2 + y*y/2 + 0.2
+      return x*x/2 + y*y/2
     }
     
     function DashedLine(X1,Y1,Z1,X2,Y2,Z2) {

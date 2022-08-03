@@ -8,7 +8,7 @@ import { generateLinearFitPoints, generateErrorCurvePoints, hardcodeLinearFitPoi
 export let sketch_1DoF = myp5 => {
   myp5.aSlider;
   myp5.bSlider;
-  let linearFitPoints;
+  myp5.linearFitPoints;
   let errorCurvePoints;
   myp5.originalTrendline;
   myp5.buttons;
@@ -22,9 +22,9 @@ export let sketch_1DoF = myp5 => {
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
 
-    linearFitPoints = hardcodeLinearFitPoints(myp5);
+    myp5.linearFitPoints = hardcodeLinearFitPoints(myp5);
     //linearFitPoints = generateLinearFitPoints(myp5, 5);
-    errorCurvePoints = generateErrorCurvePoints(myp5, linearFitPoints);
+    errorCurvePoints = generateErrorCurvePoints(myp5, myp5.linearFitPoints);
 
     myp5.stepper = 1;
 
@@ -55,7 +55,7 @@ export let sketch_1DoF = myp5 => {
     trendline.rotateSegmentBySlope(myp5, myp5.bSlider.value);
 
     let errorCurveCloud = new PointCloud(errorCurvePoints,  -axisConfig.x, axisConfig.y);
-    let linearFitCloud = new PointCloud(linearFitPoints, axisConfig.x, axisConfig.y)
+    let linearFitCloud = new PointCloud(myp5.linearFitPoints, axisConfig.x, axisConfig.y)
 
 
     // Display
@@ -72,7 +72,7 @@ export let sketch_1DoF = myp5 => {
     });
 
     getTrendlineLabelDisplay(myp5, myp5.stepper, trendlineLabel);
-    getErrorCurveDisplay(myp5, myp5.stepper, errorCurveCloud, trendline, linearFitPoints, curveAxes);
+    getErrorCurveDisplay(myp5, myp5.stepper, errorCurveCloud, trendline, myp5.linearFitPoints, curveAxes);
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
     
@@ -94,7 +94,7 @@ export let sketch_1DoF = myp5 => {
   
   myp5.keyPressed = () => {
     if (myp5.keyCode == 80) {
-      console.log(linearFitPoints);
+      console.log(myp5.linearFitPoints);
     }
   }
 
