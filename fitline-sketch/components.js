@@ -289,11 +289,13 @@ export class Segment {
 
 
     rotateSegmentByAngle(myp5, theta, rotateAboutPoint) {
+        let phi = Math.atan(theta);
+
         let vec1 = myp5.createVector(this.point_1.x - rotateAboutPoint.x, this.point_1.y - rotateAboutPoint.y)
-        let transVec1 = vec1.copy().rotate(theta);
+        let transVec1 = vec1.copy().rotate(phi);
 
         let vec2 = myp5.createVector(this.point_2.x - rotateAboutPoint.x, this.point_2.y - rotateAboutPoint.y)
-        let transVec2 = vec2.copy().rotate(theta);
+        let transVec2 = vec2.copy().rotate(phi);
 
         this.updatePoint1(transVec1, rotateAboutPoint);
         this.updatePoint2(transVec2, rotateAboutPoint);

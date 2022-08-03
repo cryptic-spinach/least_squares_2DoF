@@ -49,12 +49,18 @@ export let sketch_1DoF = myp5 => {
     let curveAxes = new Axes(-axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "b = " + parseFloat(myp5.bSlider.value).toFixed(2), "Error", axisConfig.horizontalLabelXOffset, axisConfig.horizontalLabelYOffset, axisConfig.verticalLabelXOffset, axisConfig.verticalLabelYOffset);
 
 
-    let trendlineStart = new Point( - axisConfig.left + axisConfig.x, - axisConfig.down + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
-    let trendlineEnd   = new Point(  axisConfig.right + axisConfig.x,   axisConfig.up + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
-
+    // let trendlineStart = new Point( - axisConfig.left + axisConfig.x, - axisConfig.down + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    // let trendlineEnd   = new Point(  axisConfig.right + axisConfig.x,   axisConfig.up + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    
+    let trendlineStart = new Point(  - axisConfig.left + axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    let trendlineEnd   = new Point( axisConfig.right + axisConfig.x,  axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    
     let trendline = new Segment(trendlineStart, trendlineEnd);
 
-    trendline.rotateSegmentBySlope(myp5, parseFloat(myp5.bSlider.value), parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    let pivot = new Point(axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2)
+
+    trendline.rotateSegmentByAngle(myp5, parseFloat(myp5.bSlider.value), pivot)
+    // trendline.rotateSegmentBySlope(myp5, parseFloat(myp5.bSlider.value), parseFloat(myp5.aSlider.value) * axisConfig.up/2);
 
     let errorCurveCloud = new PointCloud(errorCurvePoints,  -axisConfig.x, axisConfig.y);
     let linearFitCloud = new PointCloud(myp5.linearFitPoints, axisConfig.x, axisConfig.y)
