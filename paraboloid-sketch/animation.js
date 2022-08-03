@@ -22,9 +22,9 @@ export let paraboloid_sketch = myp5 => {
       myp5.strokeWeight(2);
     
       a_text = myp5.createDiv();
-      myp5.a_slider = myp5.createSlider(xmin,xmax,1,0.01) // LB, UB, default, Step
+      myp5.a_slider = document.querySelector(".a-slider")// LB, UB, default, Step
       b_text = myp5.createDiv();
-      myp5.b_slider = myp5.createSlider(ymin,ymax,1,0.01) // LB, UB, default, Step
+      myp5.b_slider = document.querySelector(".b-slider") // LB, UB, default, Step
     
     }
     
@@ -34,8 +34,8 @@ export let paraboloid_sketch = myp5 => {
     
       myp5.rotateX(90);
     
-      let a_val = myp5.a_slider.value(); // meters
-      let b_val = myp5.b_slider.value(); // meters
+      let a_val = parseFloat(myp5.a_slider.value); // meters
+      let b_val = parseFloat(myp5.b_slider.value); // meters
     
       //Create (x,y,z) points of parabaloid
       for(let x_indx = 0; x_indx < cols+1; x_indx += 1) {
@@ -69,8 +69,8 @@ export let paraboloid_sketch = myp5 => {
         }
       }
     
-      a_text.html("a = " + myp5.a_slider.value());
-      b_text.html("b = " + myp5.b_slider.value());
+      a_text.html("a = " + myp5.a_slider.value);
+      b_text.html("b = " + myp5.b_slider.value);
       v = [];
       let f = parabola_Equation(a_val,b_val) * scale
       a_val = a_val * scale;
