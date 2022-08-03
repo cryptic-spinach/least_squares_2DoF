@@ -183,6 +183,18 @@ export class Segment {
         this.showVec(myp5, origin, vec2, myColor, myWeight, myOpacity, false);
     }
 
+    showAsLine(myp5, myColor = palette.segmentFill, myWeight = styles.segmentWeight, myOpacity = styles.segmentOpacity) {
+
+        let colorWithOpacity = myp5.color(myColor);
+        colorWithOpacity.setAlpha(myOpacity)
+        myp5.push();
+        myp5.stroke(colorWithOpacity);
+        myp5.strokeWeight(myWeight);
+        myp5.fill(colorWithOpacity);
+        myp5.line(this.point_1.x, this.point_1.y, this.point_2.x, this.point_2.y);
+        myp5.push();
+    }
+
     showAsDashedLine(myp5) {
         myp5.push();
         let d = 5; //dashed line length
@@ -287,9 +299,9 @@ export class Segment {
         this.updatePoint2(transVec2, rotateAboutPoint);
     }
 
-    rotateSegmentBySlope(myp5, slope) {
-        let vec1 = myp5.createVector(axisConfig.x - axisConfig.left, axisConfig.y - (slope * axisConfig.left));
-        let vec2 = myp5.createVector(axisConfig.x + axisConfig.right, axisConfig.y + (slope * axisConfig.right)); 
+    rotateSegmentBySlope(myp5, slope, intercept) {
+        let vec1 = myp5.createVector(axisConfig.x - axisConfig.left, intercept + axisConfig.y - (slope * axisConfig.left));
+        let vec2 = myp5.createVector(axisConfig.x + axisConfig.right, intercept + axisConfig.y + (slope * axisConfig.right)); 
 
         this.point_1.x = vec1.x;
         this.point_1.y = vec1.y;
@@ -297,7 +309,6 @@ export class Segment {
         this.point_2.x = vec2.x;
         this.point_2.y = vec2.y;
     }
-
 
     updatePoint1(vec, point) {
         this.point_1.x = vec.x + point.x;
