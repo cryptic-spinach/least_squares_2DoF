@@ -21,13 +21,13 @@ body {
 .a-slider {
     position: absolute;
     left: 70%;
-    top: 90%;
+    top: 80%;
 }
 
 .b-slider {
     position: absolute;
-    left: 80%;
-    top: 90%;
+    left: 70%;
+    top: 85%;
 }
 
 .stepper-buttons {

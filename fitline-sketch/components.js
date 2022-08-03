@@ -288,8 +288,8 @@ export class Segment {
     }
 
     rotateSegmentBySlope(myp5, slope) {
-        let vec1 = myp5.createVector(axisConfig.x - axisConfig.left, axisConfig.y - (slope * axisConfig.left))
-        let vec2 = myp5.createVector(axisConfig.x + axisConfig.right, axisConfig.y + (slope * axisConfig.right))
+        let vec1 = myp5.createVector(axisConfig.x - axisConfig.left, axisConfig.y - (slope * axisConfig.left));
+        let vec2 = myp5.createVector(axisConfig.x + axisConfig.right, axisConfig.y + (slope * axisConfig.right)); 
 
         this.point_1.x = vec1.x;
         this.point_1.y = vec1.y;
@@ -297,6 +297,7 @@ export class Segment {
         this.point_2.x = vec2.x;
         this.point_2.y = vec2.y;
     }
+
 
     updatePoint1(vec, point) {
         this.point_1.x = vec.x + point.x;

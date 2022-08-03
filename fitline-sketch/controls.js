@@ -4,6 +4,7 @@ export function controlsInit() {
     let gui = new dat.GUI();
     gui.width = 300;
 
+    gui.add(trendlineConfig, "yIntInit", -400, 400).name("a");
     // gui.addColor(coordinatesLabelConfig, "textStroke").name("coordinates label");
     // gui.addColor(verticalPalette, "pointStroke").name("Point Stroke");
     // gui.addColor(verticalPalette, "pointFill").name("Point Fill");
