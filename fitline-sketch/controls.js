@@ -13,7 +13,7 @@ export function controlsInit() {
     // gui.add(coordinatesLabelConfig, "subTextSize", 10, 800).name("Subtext Size");
 
     // opacityGUI(gui);
-    xyGUI(gui);
+    // xyGUI(gui);
     // strokeAndFillGUI(gui);
     // weightGUI(gui);
     // sizeGUI(gui);
