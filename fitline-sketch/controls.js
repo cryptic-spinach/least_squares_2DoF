@@ -4,6 +4,9 @@ export function controlsInit() {
     let gui = new dat.GUI();
     gui.width = 300;
 
+    gui.add(sliderLabelConfig, "x", 0, 700).name("label x");
+    gui.add(sliderLabelConfig, "y", -500, 0).name("label y");
+
     // gui.addColor(coordinatesLabelConfig, "textStroke").name("coordinates label");
     // gui.addColor(verticalPalette, "pointStroke").name("Point Stroke");
     // gui.addColor(verticalPalette, "pointFill").name("Point Fill");
