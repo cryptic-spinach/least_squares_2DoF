@@ -2,7 +2,7 @@ import { canvasConfig, sliderConfig, axisConfig, palette, trendlineConfig, stepp
 import { controlsInit } from "./controls.js";
 import { formatTableAsJson, showValue, showValues, sliderInit, positionButton} from "./helpers.js"
 import { Point, Segment, Axes, PointCloud, Slider } from "./components.js";
-import { getTrendlineDisplay, getTrendlineLabelDisplay, getErrorCurveDisplay, getCoordinateLabelDisplay, getStaticCoordinateLabelDisplay } from "./stepper.js"
+import { getTrendlineDisplay, getTrendlineLabelDisplay, getErrorCurveDisplay, getCoordinateLabelDisplay, getStaticCoordinateLabelDisplay, getParaboloidDisplay } from "./stepper.js"
 import { generateLinearFitPoints, generateErrorCurvePoints, hardcodeLinearFitPoints } from "./point-factory.js";
 
 export let sketch_1DoF = myp5 => {
@@ -83,7 +83,7 @@ export let sketch_1DoF = myp5 => {
     getErrorCurveDisplay(myp5, myp5.stepper, errorCurveCloud, trendline, myp5.linearFitPoints, curveAxes);
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
-    
+    getParaboloidDisplay(myp5, myp5.stepper);
     // myp5.noLoop()
   };
 
