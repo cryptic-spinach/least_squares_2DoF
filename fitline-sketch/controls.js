@@ -6,16 +6,16 @@ export function controlsInit() {
 
 
     gui.add(paraboloidConfig, "x", 0, 500).name("paraboloid x");
-    gui.add(paraboloidConfig, "y", 0, 500).name("paraboloid y");
+    gui.add(paraboloidConfig, "y", -500, 0).name("paraboloid y");
 
     gui.add(aSliderConfig, "x", 0, 500).name("slider a x");
-    gui.add(aSliderConfig, "y", -500, 0).name("slider a y");
+    gui.add(aSliderConfig, "y", 0, 500).name("slider a y");
+
+    gui.add(bSliderConfig, "x", 0, 500).name("slider b x");
+    gui.add(bSliderConfig, "y", 0, 500).name("slider b y");
 
     gui.add(sliderLabelConfig, "ax", 0, 500).name("label a x");
     gui.add(sliderLabelConfig, "ay", 0, 500).name("label a y");
-
-    gui.add(bSliderConfig, "x", 0, 500).name("slider b x");
-    gui.add(bSliderConfig, "y", -500, 0).name("slider b y");
 
     gui.add(sliderLabelConfig, "bx", 0, 500).name("label b x");
     gui.add(sliderLabelConfig, "by", 0, 500).name("label b y");
@@ -50,8 +50,6 @@ export function opacityGUI(gui) {
 export function xyGUI(gui) {
     gui.add(sliderConfig, "x", 0, 700).name("slider x");
     gui.add(sliderConfig, "y", -500, 500).name("slider y");
-    gui.add(sliderLabelConfig, "x", 0, 700).name("label x");
-    gui.add(sliderLabelConfig, "y", -500, 0).name("label y");
     gui.add(axisConfig, "x", -500, -100).name("axis x");
     gui.add(axisConfig, "y", -500, 100).name("axis y");
     gui.add(trendlineLabelConfig, "x", -500, 0).name("trendline label x");

@@ -119,10 +119,10 @@ export let stepperButtonConfig = {
 }
 
 export let sliderLabelConfig = {
-    ax: 69,
-    ay: -365,
-    bx: 69,
-    by: -414,
+    ax: 194,
+    ay: 353,
+    bx: 194,
+    by: 401,
     labelFill: "#1fced9"
 }
 
@@ -155,16 +155,16 @@ export let testPoint2Config = {
 }
 
 export let aSliderConfig = {
-    x: 0,
-    y: 0
+    x: 27,
+    y: 331
 }
 
 export let bSliderConfig = {
-    x: 0,
-    y: 0
+    x: 27,
+    y: 384
 }
 
 export let paraboloidConfig = {
-    x: 0,
-    y: 0
+    x: 36,
+    y: -350
 }

@@ -39,9 +39,9 @@ export let paraboloid_sketch = myp5 => {
     }
     
     myp5.draw = () => {
-      // myp5.background(61,61,61);
-      myp5.background("#131626");
-      // myp5.orbitControl(4,4);
+      myp5.background(61,61,61);
+      // myp5.background("#131626");
+      myp5.orbitControl(4,4);
       myp5.rotateX(90);
       myp5.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
 

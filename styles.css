@@ -14,8 +14,6 @@ body {
 
 .paraboloid {
     position: absolute;
-    left: 1000px;
-    top: 150px;
 }
 
 .a-slider {
@@ -25,7 +23,6 @@ body {
 
 .b-slider {
     position: absolute;
-
 }
 
 .stepper-buttons {
