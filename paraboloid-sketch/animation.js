@@ -1,5 +1,4 @@
 import { fitline } from "../main.js"
-import { Point } from "../fitline-sketch/components.js"
 
 export let paraboloid_sketch = myp5 => {
 
