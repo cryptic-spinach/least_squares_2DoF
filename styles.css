@@ -20,14 +20,12 @@ body {
 
 .a-slider {
     position: absolute;
-    left: 600px;
-    top: 800px;
+
 }
 
 .b-slider {
     position: absolute;
-    left: 600px;
-    top: 750px;
+
 }
 
 .stepper-buttons {

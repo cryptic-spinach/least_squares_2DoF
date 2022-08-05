@@ -1,4 +1,4 @@
-import { axisConfig, canvasConfig, sliderConfig, trendlineConfig, debugConfig, stepperButtonConfig, curveConfig, aSliderConfig, bSliderConfig} from "./configs.js";
+import { axisConfig, canvasConfig, sliderConfig, trendlineConfig, debugConfig, stepperButtonConfig, curveConfig, aSliderConfig, bSliderConfig, paraboloidConfig} from "./configs.js";
 import { Point } from "./components.js"
 
 
@@ -44,6 +44,11 @@ export function positionASlider(myp5, slider) {
 export function positionBSlider(myp5, slider) {
   slider.style.left = parseInt(bSliderConfig.x + (myp5.windowWidth)/2).toString() + "px";
   slider.style.top  = parseInt(bSliderConfig.y  + (myp5.windowHeight)/2).toString() + "px";
+}
+
+export function positionParaboloid(myp5, paraboloid) {
+  paraboloid.style.left = parseInt(paraboloidConfig.x + (myp5.windowWidth)/2).toString() + "px";
+  paraboloid.style.top  = parseInt(paraboloidConfig.y  + (myp5.windowHeight)/2).toString() + "px";
 }
 
 export function showValues(myp5, pairs) {

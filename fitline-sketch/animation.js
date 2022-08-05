@@ -1,6 +1,6 @@
 import { canvasConfig, sliderConfig, axisConfig, palette, trendlineConfig, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, styles, curveConfig, testPoint1Config, testPoint2Config } from "./configs.js";
 import { controlsInit } from "./controls.js";
-import { formatTableAsJson, showValue, showValues, sliderInit, positionButton, positionASlider, positionBSlider} from "./helpers.js"
+import { formatTableAsJson, showValue, showValues, sliderInit, positionButton, positionASlider, positionBSlider, positionParaboloid} from "./helpers.js"
 import { Point, Segment, Axes, PointCloud, Slider } from "./components.js";
 import { getTrendlineDisplay, getTrendlineLabelDisplay, getErrorCurveDisplay, getCoordinateLabelDisplay, getStaticCoordinateLabelDisplay, getParaboloidDisplay, getSliderDisplay } from "./stepper.js"
 import { generateLinearFitPoints, generateErrorCurvePoints, hardcodeLinearFitPoints } from "./point-factory.js";
@@ -13,6 +13,7 @@ export let sketch_1DoF = myp5 => {
   myp5.originalTrendline;
   myp5.buttons;
   myp5.stepper;
+  myp5.paraboloid;
 
   myp5.setup = () => {
     myp5.createCanvas(myp5.windowWidth - canvasConfig.trimX, myp5.windowHeight - canvasConfig.trimY);
@@ -21,6 +22,8 @@ export let sketch_1DoF = myp5 => {
     myp5.buttons = myp5.buttonsInit(myp5);
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
+    myp5.paraboloid = document.querySelector(".paraboloid");
+
 
     myp5.linearFitPoints = hardcodeLinearFitPoints(myp5);
     //linearFitPoints = generateLinearFitPoints(myp5, 5);
@@ -101,6 +104,7 @@ export let sketch_1DoF = myp5 => {
     })
     positionASlider(myp5, myp5.aSlider)
     positionBSlider(myp5, myp5.bSlider)
+    positionParaboloid(myp5, myp5.paraboloid)
   }
   
   myp5.keyPressed = () => {
