@@ -119,8 +119,10 @@ export let stepperButtonConfig = {
 }
 
 export let sliderLabelConfig = {
-    x: 100,
-    y: -367,
+    ax: 69,
+    ay: -365,
+    bx: 69,
+    by: -414,
     labelFill: "#1fced9"
 }
 
@@ -150,4 +152,14 @@ export let testPoint1Config = {
 export let testPoint2Config = {
     x: 670,
     y: -114
+}
+
+export let aSliderConfig = {
+    x: 0,
+    y: 0
+}
+
+export let bSliderConfig = {
+    x: 0,
+    y: 0
 }

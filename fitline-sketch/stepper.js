@@ -64,13 +64,15 @@ export function getParaboloidDisplay(myp5, stepper) {
   }
 }
 
-export function getSliderDisplay(myp5, stepper, slider, sliderLabel) {
+export function getSliderDisplay(myp5, stepper, sliderLabelA, sliderLabelB) {
   switch (stepper) {
     case 1:
-      sliderLabel.showLabel(myp5, sliderLabelConfig.labelFill);
+      sliderLabelA.showLabel(myp5, sliderLabelConfig.labelFill);
+      sliderLabelB.showLabel(myp5, sliderLabelConfig.labelFill);
       break;
     case 2:
-      sliderLabel.showLabel(myp5, sliderLabelConfig.labelFill);
+      sliderLabelA.showLabel(myp5, sliderLabelConfig.labelFill);
+      sliderLabelB.showLabel(myp5, sliderLabelConfig.labelFill);
       break;
   }
 }

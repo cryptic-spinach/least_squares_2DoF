@@ -14,20 +14,20 @@ body {
 
 .paraboloid {
     position: absolute;
-    left: 55%;
-    top: 15%;
+    left: 1000px;
+    top: 150px;
 }
 
 .a-slider {
     position: absolute;
-    left: 45%;
-    top: 80%;
+    left: 600px;
+    top: 800px;
 }
 
 .b-slider {
     position: absolute;
-    left: 45%;
-    top: 85%;
+    left: 600px;
+    top: 750px;
 }
 
 .stepper-buttons {

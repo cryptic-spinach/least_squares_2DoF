@@ -1,11 +1,22 @@
-import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionVecPalette, projectionVecStyles, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, squaresConfig, curveConfig, coordinatesLabelConfig, verticalPalette, parabolaPalette} from "./configs.js";
+import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionVecPalette, projectionVecStyles, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, squaresConfig, curveConfig, coordinatesLabelConfig, verticalPalette, parabolaPalette, aSliderConfig, bSliderConfig} from "./configs.js";
 
 export function controlsInit() {
     let gui = new dat.GUI();
     gui.width = 300;
 
-    gui.add(sliderLabelConfig, "x", 0, 700).name("label x");
-    gui.add(sliderLabelConfig, "y", -500, 0).name("label y");
+
+    gui.add(aSliderConfig, "x", 0, 500).name("slider a x");
+    gui.add(aSliderConfig, "y", -500, 0).name("slider a y");
+
+    gui.add(sliderLabelConfig, "ax", 0, 500).name("label a x");
+    gui.add(sliderLabelConfig, "ay", -500, 0).name("label a y");
+
+    gui.add(bSliderConfig, "x", 0, 500).name("slider b x");
+    gui.add(bSliderConfig, "y", -500, 0).name("slider b y");
+
+    gui.add(sliderLabelConfig, "bx", 0, 500).name("label b x");
+    gui.add(sliderLabelConfig, "by", -500, 0).name("label b y");
+
 
     // gui.addColor(coordinatesLabelConfig, "textStroke").name("coordinates label");
     // gui.addColor(verticalPalette, "pointStroke").name("Point Stroke");

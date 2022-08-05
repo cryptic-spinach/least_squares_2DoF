@@ -1,6 +1,6 @@
 import { canvasConfig, sliderConfig, axisConfig, palette, trendlineConfig, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, styles, curveConfig, testPoint1Config, testPoint2Config } from "./configs.js";
 import { controlsInit } from "./controls.js";
-import { formatTableAsJson, showValue, showValues, sliderInit, positionButton} from "./helpers.js"
+import { formatTableAsJson, showValue, showValues, sliderInit, positionButton, positionASlider, positionBSlider} from "./helpers.js"
 import { Point, Segment, Axes, PointCloud, Slider } from "./components.js";
 import { getTrendlineDisplay, getTrendlineLabelDisplay, getErrorCurveDisplay, getCoordinateLabelDisplay, getStaticCoordinateLabelDisplay, getParaboloidDisplay, getSliderDisplay } from "./stepper.js"
 import { generateLinearFitPoints, generateErrorCurvePoints, hardcodeLinearFitPoints } from "./point-factory.js";
@@ -26,7 +26,7 @@ export let sketch_1DoF = myp5 => {
     //linearFitPoints = generateLinearFitPoints(myp5, 5);
     errorCurvePoints = generateErrorCurvePoints(myp5, myp5.linearFitPoints);
 
-    myp5.stepper = 1;
+    myp5.stepper = 2;
 
 
     let trendlineStart = new Point( - axisConfig.left + axisConfig.x - trendlineConfig.extraX, - axisConfig.down + trendlineConfig.yIntInit + axisConfig.y - trendlineConfig.extraY);
@@ -42,12 +42,12 @@ export let sketch_1DoF = myp5 => {
     myp5.updateDOM();
 
     // Calculation
-    let sliderLabel = new Point(sliderLabelConfig.x, sliderLabelConfig.y, "b = " + parseFloat(myp5.bSlider.value).toFixed(2));
+    let sliderLabelA = new Point(sliderLabelConfig.ax, sliderLabelConfig.ay, "a = " + parseFloat(myp5.aSlider.value).toFixed(2));
+    let sliderLabelB = new Point(sliderLabelConfig.bx, sliderLabelConfig.by, "b = " + parseFloat(myp5.bSlider.value).toFixed(2));
     let trendlineLabel = new Point(trendlineLabelConfig.x, trendlineLabelConfig.y, "y = a + bx");
 
     let trendlineAxes = new Axes(axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "x", "y");
     let curveAxes = new Axes(-axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "b = " + parseFloat(myp5.bSlider.value).toFixed(2), "Error", axisConfig.horizontalLabelXOffset, axisConfig.horizontalLabelYOffset, axisConfig.verticalLabelXOffset, axisConfig.verticalLabelYOffset);
-
 
     // let trendlineStart = new Point( - axisConfig.left + axisConfig.x, - axisConfig.down + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
     // let trendlineEnd   = new Point(  axisConfig.right + axisConfig.x,   axisConfig.up + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
@@ -84,7 +84,7 @@ export let sketch_1DoF = myp5 => {
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
     getParaboloidDisplay(myp5, myp5.stepper);
-    getSliderDisplay(myp5, myp5.stepper, myp5.slider, sliderLabel);
+    getSliderDisplay(myp5, myp5.stepper, sliderLabelA, sliderLabelB);
     // myp5.noLoop()
   };
 
@@ -99,6 +99,8 @@ export let sketch_1DoF = myp5 => {
       positionButton(myp5, b, i);
       i++;
     })
+    positionASlider(myp5, myp5.aSlider)
+    positionBSlider(myp5, myp5.bSlider)
   }
   
   myp5.keyPressed = () => {

@@ -1,4 +1,4 @@
-import { axisConfig, canvasConfig, sliderConfig, trendlineConfig, debugConfig, stepperButtonConfig, curveConfig} from "./configs.js";
+import { axisConfig, canvasConfig, sliderConfig, trendlineConfig, debugConfig, stepperButtonConfig, curveConfig, aSliderConfig, bSliderConfig} from "./configs.js";
 import { Point } from "./components.js"
 
 
@@ -36,6 +36,15 @@ export function positionButton(myp5, button, index) {
   button.style.top  = parseInt(stepperButtonConfig.y + (myp5.windowHeight - canvasConfig.trimY)/2             ).toString() + "px";
 }
 
+export function positionASlider(myp5, slider) {
+  slider.style.left = parseInt(aSliderConfig.x + (myp5.windowWidth)/2).toString() + "px";
+  slider.style.top  = parseInt(aSliderConfig.y  + (myp5.windowHeight)/2).toString() + "px";
+}
+
+export function positionBSlider(myp5, slider) {
+  slider.style.left = parseInt(bSliderConfig.x + (myp5.windowWidth)/2).toString() + "px";
+  slider.style.top  = parseInt(bSliderConfig.y  + (myp5.windowHeight)/2).toString() + "px";
+}
 
 export function showValues(myp5, pairs) {
   for (let i = 0; i < pairs.length; i++) {
