@@ -55,12 +55,12 @@ export let sketch_1DoF = myp5 => {
     // let trendlineStart = new Point( - axisConfig.left + axisConfig.x, - axisConfig.down + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
     // let trendlineEnd   = new Point(  axisConfig.right + axisConfig.x,   axisConfig.up + axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
     
-    let trendlineStart = new Point(  - axisConfig.left + axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
-    let trendlineEnd   = new Point( axisConfig.right + axisConfig.x,  axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2);
+    let trendlineStart = new Point(  - axisConfig.left + axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * 100);
+    let trendlineEnd   = new Point( axisConfig.right + axisConfig.x,  axisConfig.y + parseFloat(myp5.aSlider.value) * 100);
     
     let trendline = new Segment(trendlineStart, trendlineEnd);
 
-    let pivot = new Point(axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * axisConfig.up/2)
+    let pivot = new Point(axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * 100)
 
     trendline.rotateSegmentByAngle(myp5, parseFloat(myp5.bSlider.value), pivot)
     // trendline.rotateSegmentBySlope(myp5, parseFloat(myp5.bSlider.value), parseFloat(myp5.aSlider.value) * axisConfig.up/2);
