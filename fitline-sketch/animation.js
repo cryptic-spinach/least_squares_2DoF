@@ -29,7 +29,7 @@ export let sketch_1DoF = myp5 => {
     //linearFitPoints = generateLinearFitPoints(myp5, 5);
     errorCurvePoints = generateErrorCurvePoints(myp5, myp5.linearFitPoints);
 
-    myp5.stepper = 2;
+    myp5.stepper = 1;
 
 
     let trendlineStart = new Point( - axisConfig.left + axisConfig.x - trendlineConfig.extraX, - axisConfig.down + trendlineConfig.yIntInit + axisConfig.y - trendlineConfig.extraY);
