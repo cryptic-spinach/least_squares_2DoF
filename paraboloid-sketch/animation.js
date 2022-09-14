@@ -39,7 +39,7 @@ export let paraboloid_sketch = myp5 => {
     }
     
     myp5.draw = () => {
-      myp5.background(61,61,61);
+      myp5.background("#131626");
       // myp5.background("#131626");
       myp5.orbitControl(4,4);
       myp5.rotateX(90);
@@ -89,9 +89,11 @@ export let paraboloid_sketch = myp5 => {
       }
     
       //Plot parabaloid by shading in each element
+      myp5.push();
+      myp5.fill(61, 100, 235, 150);
+      myp5.strokeWeight(0.5)
       for(let x_indx = 0; x_indx < v.length; x_indx++){
         for(let y_indx = 0; y_indx < v[x_indx].length; y_indx++){
-          myp5.fill(61, 100, 235);
           if(x_indx < v.length-1 && y_indx < v[x_indx].length-1){
             myp5.beginShape();
             myp5.vertex(v[x_indx][y_indx].x, v[x_indx][y_indx].y, v[x_indx][y_indx].z);
@@ -102,6 +104,7 @@ export let paraboloid_sketch = myp5 => {
           }
         }
       }
+      myp5.pop();
     
       v = [];
       let f = parabola_Equation(a_val,b_val) * scale

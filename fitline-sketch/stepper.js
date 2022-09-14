@@ -56,7 +56,7 @@ export function getParaboloidDisplay(myp5, stepper) {
   let para = document.querySelector(".paraboloid")
   switch (stepper) {
     case 1:
-      para.style.opacity = 0;
+      para.style.opacity = 1;
       break;
     case 2:
       para.style.opacity = 1;
