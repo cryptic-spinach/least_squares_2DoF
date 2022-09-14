@@ -11,6 +11,7 @@ export let paraboloid_sketch = myp5 => {
     let movedown = 1.5; //meters (artifically moving the whole parabaloid and axes down)
     
     let scale = 100; // pixels / meter
+    let zRotation = 0
     
     myp5.a_slider, 
     myp5.b_slider;
@@ -40,9 +41,13 @@ export let paraboloid_sketch = myp5 => {
     
     myp5.draw = () => {
       myp5.background("#131626");
-      // myp5.background("#131626");
       myp5.orbitControl(4,4);
+
       myp5.rotateX(90);
+
+      zRotation += 0.1;
+      myp5.rotateZ(zRotation);
+
       myp5.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
 
         //Add axes labels
@@ -121,6 +126,7 @@ export let paraboloid_sketch = myp5 => {
       myp5.sphere(5) //point on x-y plane
       myp5.pop()
     
+      
       let x_base = myp5.createVector(-150,0,0);
       let x_vec = myp5.createVector(300,0,0);
       let y_base = myp5.createVector(0,-150,0);
@@ -129,7 +135,7 @@ export let paraboloid_sketch = myp5 => {
       drawArrow(y_base, y_vec, 'white') // y axis
       myp5.push();
       myp5.stroke('White');
-      myp5.strokeWeight(2);
+      myp5.strokeWeight(1);
       myp5.line(0,0,0,0,0,200) // z axis
       myp5.pop();
     
@@ -203,7 +209,7 @@ export let paraboloid_sketch = myp5 => {
     function drawArrow(base, vec, myColor) {
       myp5.push();
       myp5.stroke(myColor);
-      myp5.strokeWeight(2);
+      myp5.strokeWeight(1);
       myp5.fill(myColor);
       myp5.translate(base.x, base.y, base.z);
       myp5.line(0, 0, 0, vec.x, vec.y, vec.z);
