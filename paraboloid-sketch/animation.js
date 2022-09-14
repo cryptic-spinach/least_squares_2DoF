@@ -215,8 +215,9 @@ export let paraboloid_sketch = myp5 => {
       myp5.line(0, 0, 0, vec.x, vec.y, vec.z);
       myp5.rotate(vec.heading());
       let arrowSize = 12;
-      myp5.translate(vec.mag() - arrowSize, 0, 0);
-      myp5.triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+      myp5.translate(vec.mag() - arrowSize + 10, 0, 0);
+      myp5.rotateZ(-90);
+      myp5.cone(6, arrowSize);
       myp5.pop();
     }
 
