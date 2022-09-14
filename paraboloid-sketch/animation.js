@@ -12,6 +12,7 @@ export let paraboloid_sketch = myp5 => {
     
     let scale = 100; // pixels / meter
     let zRotation = 0
+    let inconsolata;
     
     myp5.a_slider, 
     myp5.b_slider;
@@ -20,10 +21,16 @@ export let paraboloid_sketch = myp5 => {
     let b_label //label b
     let Error_label //label Error
     
+    myp5.preload = () => {
+      inconsolata = myp5.loadFont('paraboloid-sketch/Inconsolata.otf');
+    }
+
     myp5.setup = () => {
       myp5.createCanvas(800,600, myp5.WEBGL);
       myp5.angleMode(myp5.DEGREES);
       myp5.colorMode(myp5.RGB);
+
+
       a_label = createLabel('a')
       b_label = createLabel('b')
       Error_label = createLabel('error')
@@ -36,7 +43,6 @@ export let paraboloid_sketch = myp5 => {
       b_text = myp5.createDiv();
       myp5.b_slider = document.querySelector(".b-slider") // LB, UB, default, Step
     
-      console.log(fitline.linearFitPoints);
     }
     
     myp5.draw = () => {
@@ -66,11 +72,14 @@ export let paraboloid_sketch = myp5 => {
         myp5.pop()
         //z axis label "Error"
         myp5.push()
-        myp5.translate(10,0,240)
+        myp5.rotateZ(-zRotation);
+        myp5.translate(0,0,240)
         myp5.rotateX(270)
-        myp5.texture(Error_label)
         myp5.strokeWeight(0)
-        myp5.plane(100, 20)
+        myp5.textSize(40)
+        myp5.textFont(inconsolata);
+        myp5.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.text('Error', 0, 0);
         myp5.pop()
     
       let a_val = parseFloat(myp5.a_slider.value); // meters
