@@ -51,29 +51,37 @@ export let paraboloid_sketch = myp5 => {
 
       myp5.rotateX(90);
 
-      zRotation += 0.1;
+      zRotation += 0.2;
       myp5.rotateZ(zRotation);
 
       myp5.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
 
         //Add axes labels
         myp5.push()
-        myp5.translate(230,0,0)
-        myp5.texture(a_label)
+        myp5.translate(170,0,0)
+        myp5.rotateZ(-zRotation);
+        myp5.rotateX(270)
         myp5.strokeWeight(0)
-        myp5.plane(150, 20)
+        myp5.textSize(40)
+        myp5.textFont(inconsolata);
+        myp5.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.text('a', 0, 0);
         myp5.pop()
         //y axis label "b"
         myp5.push()
-        myp5.translate(65,170,0)
-        myp5.texture(b_label)
+        myp5.translate(0,170,0)
+        myp5.rotateZ(-zRotation);
+        myp5.rotateX(270)
         myp5.strokeWeight(0)
-        myp5.plane(150, 20)
+        myp5.textSize(40)
+        myp5.textFont(inconsolata);
+        myp5.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.text('b', 0, 0);
         myp5.pop()
         //z axis label "Error"
         myp5.push()
+        myp5.translate(0,0,240);
         myp5.rotateZ(-zRotation);
-        myp5.translate(0,0,240)
         myp5.rotateX(270)
         myp5.strokeWeight(0)
         myp5.textSize(40)
@@ -144,7 +152,7 @@ export let paraboloid_sketch = myp5 => {
       drawArrow(y_base, y_vec, 'white') // y axis
       myp5.push();
       myp5.stroke('White');
-      myp5.strokeWeight(1);
+      myp5.strokeWeight(2);
       myp5.line(0,0,0,0,0,200) // z axis
       myp5.pop();
     
