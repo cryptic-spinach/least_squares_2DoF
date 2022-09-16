@@ -8,7 +8,7 @@ export let paraboloid_sketch = myp5 => {
     let xmax = 1.8; //meters
     let ymin = 0.4; //meters
     let ymax = 1.6; //meters
-    let movedown = 1.5; //meters (artifically moving the whole parabaloid and axes down)
+    let movedown = 0.5; //meters (artifically moving the whole parabaloid and axes down)
     
     let scale = 100; // pixels / meter
     let zRotation = 0
@@ -49,7 +49,8 @@ export let paraboloid_sketch = myp5 => {
       myp5.background("#131626");
       // myp5.orbitControl(4,4);
 
-      myp5.rotateX(90);
+      myp5.camera(0, 500, 200)
+      // myp5.rotateX(90);
 
       zRotation += 0.2;
       myp5.rotateZ(zRotation);
