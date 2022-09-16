@@ -80,7 +80,7 @@ export let sketch_1DoF = myp5 => {
       p.show(myp5);
     });
 
-    getTrendlineLabelDisplay(myp5, myp5.stepper, trendlineLabel);
+    // getTrendlineLabelDisplay(myp5, myp5.stepper, trendlineLabel);
     getErrorCurveDisplay(myp5, myp5.stepper, errorCurveCloud, trendline, myp5.linearFitPoints, curveAxes);
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
