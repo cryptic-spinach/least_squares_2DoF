@@ -11,7 +11,6 @@ export let sketch_1DoF = myp5 => {
   myp5.linearFitPoints;
   let errorCurvePoints;
   myp5.originalTrendline;
-  myp5.buttons;
   myp5.stepper;
   myp5.paraboloid;
 
@@ -19,7 +18,6 @@ export let sketch_1DoF = myp5 => {
     myp5.createCanvas(myp5.windowWidth - canvasConfig.trimX, myp5.windowHeight - canvasConfig.trimY);
   
     controlsInit();
-    myp5.buttons = myp5.buttonsInit(myp5);
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
     myp5.paraboloid = document.querySelector(".paraboloid");
@@ -97,11 +95,6 @@ export let sketch_1DoF = myp5 => {
   }
 
   myp5.updateDOM = () => {
-    let i = 0;
-    myp5.buttons.forEach(b => {
-      positionButton(myp5, b, i);
-      i++;
-    })
     positionASlider(myp5, myp5.aSlider)
     positionBSlider(myp5, myp5.bSlider)
     positionParaboloid(myp5, myp5.paraboloid)
@@ -111,26 +104,6 @@ export let sketch_1DoF = myp5 => {
     if (myp5.keyCode == 80) {
       console.log(myp5.linearFitPoints);
     }
-  }
-
-  myp5.buttonsInit = () => {
-    let ret = [];
-    let cnv = document.querySelector(".fitline")
-  
-    for (let i = 0; i < 2; i++) {
-      let stepperButton = document.createElement("button");
-      stepperButton.innerHTML = (i+1).toString();
-      stepperButton.className = "stepper-buttons";
-      positionButton(myp5, stepperButton, i)
-      stepperButton.addEventListener("click", () => {
-        myp5.stepper = i + 1;
-      })
-      cnv.appendChild(stepperButton);
-      ret.push(stepperButton);
-    }
-  
-    
-    return ret;
   }
 
 };
