@@ -15,7 +15,7 @@ export let sketch_1DoF = myp5 => {
   myp5.paraboloid;
 
   myp5.setup = () => {
-    myp5.createCanvas(myp5.windowWidth - canvasConfig.trimX, myp5.windowHeight - canvasConfig.trimY);
+    myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight);
   
     controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
@@ -37,10 +37,10 @@ export let sketch_1DoF = myp5 => {
 
   myp5.draw = () => {
     myp5.background(palette.backgroundFill);
-    myp5.translate((myp5.windowWidth - canvasConfig.trimX)/2, (myp5.windowHeight - canvasConfig.trimY)/2);
+    myp5.translate(myp5.windowWidth/2/2, myp5.windowHeight/2);
     myp5.scale(1, -1);
     myp5.angleMode(myp5.RADIANS);
-    myp5.updateDOM();
+    //myp5.updateDOM();
 
     // Calculation
     let sliderLabelA = new Point(sliderLabelConfig.ax, -sliderLabelConfig.ay, "a = " + parseFloat(myp5.aSlider.value).toFixed(2));
@@ -90,8 +90,8 @@ export let sketch_1DoF = myp5 => {
   };
 
   myp5.windowResized = () => {
-    myp5.resizeCanvas(myp5.windowWidth - canvasConfig.trimX, myp5.windowHeight - canvasConfig.trimY);
-    myp5.updateDOM();
+    myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight);
+    // myp5.updateDOM();
   }
 
   myp5.updateDOM = () => {

@@ -1,19 +1,20 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #131626;
+    background-color: #55a35e;
 }
 
 .project-container {
-    position: relative;
+    display: flex;
+    flex-direction: row;
 }
 
 .fitline {
-    position: relative;
+
 }
 
 .paraboloid {
-    position: absolute;
+    
 }
 
 .a-slider {

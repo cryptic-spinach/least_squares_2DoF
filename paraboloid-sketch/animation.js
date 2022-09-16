@@ -26,7 +26,7 @@ export let paraboloid_sketch = myp5 => {
     }
 
     myp5.setup = () => {
-      myp5.createCanvas(800,600, myp5.WEBGL);
+      myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight, myp5.WEBGL);
       myp5.angleMode(myp5.DEGREES);
       myp5.colorMode(myp5.RGB);
 
@@ -47,7 +47,7 @@ export let paraboloid_sketch = myp5 => {
     
     myp5.draw = () => {
       myp5.background("#131626");
-      myp5.orbitControl(4,4);
+      // myp5.orbitControl(4,4);
 
       myp5.rotateX(90);
 
@@ -159,6 +159,10 @@ export let paraboloid_sketch = myp5 => {
       DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
       DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
       DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
+    }
+
+    myp5.windowResized = () => {
+      myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight);
     }
     
     function parabola_Equation(x,y) {
