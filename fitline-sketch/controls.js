@@ -3,7 +3,8 @@ import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionV
 export function controlsInit() {
     let gui = new dat.GUI();
     gui.width = 300;
-
+    
+    gui.addColor(palette, "backgroundFill").name("Background Fill");
 
     // gui.add(paraboloidConfig, "x", 0, 500).name("paraboloid x");
     // gui.add(paraboloidConfig, "y", -500, 0).name("paraboloid y");
