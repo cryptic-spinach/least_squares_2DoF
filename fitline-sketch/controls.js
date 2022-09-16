@@ -9,16 +9,16 @@ export function controlsInit() {
     // gui.add(paraboloidConfig, "x", 0, 500).name("paraboloid x");
     // gui.add(paraboloidConfig, "y", -500, 0).name("paraboloid y");
 
-    // gui.add(aSliderConfig, "x", 0, 500).name("slider a x");
-    // gui.add(aSliderConfig, "y", 0, 500).name("slider a y");
+    // gui.add(aSliderConfig, "x", -300, 500).name("slider a x");
+    // gui.add(bSliderConfig, "x", -300, 500).name("slider b x");
 
-    // gui.add(bSliderConfig, "x", 0, 500).name("slider b x");
-    // gui.add(bSliderConfig, "y", 0, 500).name("slider b y");
+    // gui.add(aSliderConfig, "y", -300, 500).name("slider a y");
+    // gui.add(bSliderConfig, "y", -300, 500).name("slider b y");
 
     // gui.add(sliderLabelConfig, "ax", 0, 500).name("label a x");
-    // gui.add(sliderLabelConfig, "ay", 0, 500).name("label a y");
-
     // gui.add(sliderLabelConfig, "bx", 0, 500).name("label b x");
+
+    // gui.add(sliderLabelConfig, "ay", 0, 500).name("label a y");    
     // gui.add(sliderLabelConfig, "by", 0, 500).name("label b y");
 
 

@@ -93,8 +93,8 @@ export let axisPalette = {
 }
 
 export let sliderConfig = { 
-    x: 95, 
-    y: 434,
+    x: 0, 
+    y: 0,
     min: -2,
     max: 2
 }
@@ -119,10 +119,10 @@ export let stepperButtonConfig = {
 }
 
 export let sliderLabelConfig = {
-    ax: 194,
-    ay: 353,
-    bx: 194,
-    by: 401,
+    ax: 291,
+    ay: 296,
+    bx: 291,
+    by: 349,
     labelFill: "#1fced9"
 }
 
@@ -156,12 +156,12 @@ export let testPoint2Config = {
 
 export let aSliderConfig = {
     x: 27,
-    y: 331
+    y: 272
 }
 
 export let bSliderConfig = {
     x: 27,
-    y: 384
+    y: 328
 }
 
 export let paraboloidConfig = {

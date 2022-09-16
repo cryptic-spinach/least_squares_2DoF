@@ -40,7 +40,7 @@ export let sketch_1DoF = myp5 => {
     myp5.translate(myp5.windowWidth/2/2, myp5.windowHeight/2);
     myp5.scale(1, -1);
     myp5.angleMode(myp5.RADIANS);
-    //myp5.updateDOM();
+    myp5.updateDOM();
 
     // Calculation
     let sliderLabelA = new Point(sliderLabelConfig.ax, -sliderLabelConfig.ay, "a = " + parseFloat(myp5.aSlider.value).toFixed(2));
@@ -97,7 +97,7 @@ export let sketch_1DoF = myp5 => {
   myp5.updateDOM = () => {
     positionASlider(myp5, myp5.aSlider)
     positionBSlider(myp5, myp5.bSlider)
-    positionParaboloid(myp5, myp5.paraboloid)
+    // positionParaboloid(myp5, myp5.paraboloid)
   }
   
   myp5.keyPressed = () => {
