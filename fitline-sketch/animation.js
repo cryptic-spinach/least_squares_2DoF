@@ -45,7 +45,7 @@ export let sketch_1DoF = myp5 => {
     // Calculation
     let sliderLabelA = new Point(sliderLabelConfig.ax, -sliderLabelConfig.ay, "a = " + parseFloat(myp5.aSlider.value).toFixed(2));
     let sliderLabelB = new Point(sliderLabelConfig.bx, -sliderLabelConfig.by, "b = " + parseFloat(myp5.bSlider.value).toFixed(2));
-    let trendlineLabel = new Point(trendlineLabelConfig.x, trendlineLabelConfig.y, "y = a + bx");
+    // let trendlineLabel = new Point(trendlineLabelConfig.x, trendlineLabelConfig.y, "y = a + bx");
 
     let trendlineAxes = new Axes(axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "x", "y");
     let curveAxes = new Axes(-axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "b = " + parseFloat(myp5.bSlider.value).toFixed(2), "Error", axisConfig.horizontalLabelXOffset, axisConfig.horizontalLabelYOffset, axisConfig.verticalLabelXOffset, axisConfig.verticalLabelYOffset);
