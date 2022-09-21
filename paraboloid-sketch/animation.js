@@ -21,22 +21,26 @@ export let paraboloid_sketch = myp5 => {
     let b_label //label b
     let Error_label //label Error
     
+    myp5.graphics;
+
     myp5.preload = () => {
       inconsolata = myp5.loadFont('paraboloid-sketch/Inconsolata.otf');
     }
 
     myp5.setup = () => {
-      myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight, myp5.WEBGL);
-      myp5.angleMode(myp5.DEGREES);
-      myp5.colorMode(myp5.RGB);
+      myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
 
+      myp5.graphics = myp5.createGraphics(myp5.width, myp5.height, myp5.WEBGL);
+    
+      myp5.graphics.angleMode(myp5.DEGREES);
+      myp5.graphics.colorMode(myp5.RGB);
 
       a_label = createLabel('a')
       b_label = createLabel('b')
       Error_label = createLabel('error')
-    
-      myp5.stroke(67, 162, 209);
-      myp5.strokeWeight(2);
+
+      myp5.graphics.stroke(67, 162, 209);
+      myp5.graphics.strokeWeight(2);
     
       a_text = myp5.createDiv();
       myp5.a_slider = document.querySelector(".a-slider")// LB, UB, default, Step
@@ -47,49 +51,49 @@ export let paraboloid_sketch = myp5 => {
     
     myp5.draw = () => {
       myp5.background("#131626");
-      // myp5.orbitControl(4,4);
+      myp5.graphics.clear();
 
-      myp5.camera(0, 500, 200)
+      myp5.graphics.camera(0, 500, 200)
       // myp5.rotateX(90);
 
       zRotation += 0.2 % 360;
-      myp5.rotateZ(zRotation);
+      myp5.graphics.rotateZ(zRotation);
 
-      myp5.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
+      myp5.graphics.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
 
         //Add axes labels
-        myp5.push()
-        myp5.translate(170,0,0)
-        myp5.rotateZ(-zRotation);
-        myp5.rotateX(270)
-        myp5.strokeWeight(0)
-        myp5.textSize(40)
-        myp5.textFont(inconsolata);
-        myp5.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.text('a', 0, 0);
-        myp5.pop()
+        myp5.graphics.push()
+        myp5.graphics.translate(170,0,0)
+        myp5.graphics.rotateZ(-zRotation);
+        myp5.graphics.rotateX(270)
+        myp5.graphics.strokeWeight(0)
+        myp5.graphics.textSize(40)
+        myp5.graphics.textFont(inconsolata);
+        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.graphics.text('a', 0, 0);
+        myp5.graphics.pop()
         //y axis label "b"
-        myp5.push()
-        myp5.translate(0,170,0)
-        myp5.rotateZ(-zRotation);
-        myp5.rotateX(270)
-        myp5.strokeWeight(0)
-        myp5.textSize(40)
-        myp5.textFont(inconsolata);
-        myp5.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.text('b', 0, 0);
-        myp5.pop()
+        myp5.graphics.push()
+        myp5.graphics.translate(0,170,0)
+        myp5.graphics.rotateZ(-zRotation);
+        myp5.graphics.rotateX(270)
+        myp5.graphics.strokeWeight(0)
+        myp5.graphics.textSize(40)
+        myp5.graphics.textFont(inconsolata);
+        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.graphics.text('b', 0, 0);
+        myp5.graphics.pop()
         //z axis label "Error"
-        myp5.push()
-        myp5.translate(0,0,240);
-        myp5.rotateZ(-zRotation);
-        myp5.rotateX(270)
-        myp5.strokeWeight(0)
-        myp5.textSize(40)
-        myp5.textFont(inconsolata);
-        myp5.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.text('Error', 0, 0);
-        myp5.pop()
+        myp5.graphics.push()
+        myp5.graphics.translate(0,0,240);
+        myp5.graphics.rotateZ(-zRotation);
+        myp5.graphics.rotateX(270)
+        myp5.graphics.strokeWeight(0)
+        myp5.graphics.textSize(40)
+        myp5.graphics.textFont(inconsolata);
+        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
+        myp5.graphics.text('Error', 0, 0);
+        myp5.graphics.pop()
     
       let a_val = parseFloat(myp5.a_slider.value); // meters
       let b_val = parseFloat(myp5.b_slider.value); // meters
@@ -104,66 +108,68 @@ export let paraboloid_sketch = myp5 => {
           x = x * scale; // pixels
           y = y * scale; // pixels
           z = z * scale; // pixels
-          myp5.vertex(x, y, z);
+          myp5.graphics.vertex(x, y, z);
     
-          let pos = myp5.createVector(x,y,z);
+          let pos = myp5.graphics.createVector(x,y,z);
           v[x_indx].push(pos);
         }
       }
     
       //Plot parabaloid by shading in each element
-      myp5.push();
-      myp5.fill(61, 100, 235, 150);
-      myp5.strokeWeight(0.5)
+      myp5.graphics.push();
+      myp5.graphics.fill(61, 100, 235, 200);
+      myp5.graphics.strokeWeight(0.5)
       for(let x_indx = 0; x_indx < v.length; x_indx++){
         for(let y_indx = 0; y_indx < v[x_indx].length; y_indx++){
           if(x_indx < v.length-1 && y_indx < v[x_indx].length-1){
-            myp5.beginShape();
-            myp5.vertex(v[x_indx][y_indx].x, v[x_indx][y_indx].y, v[x_indx][y_indx].z);
-            myp5.vertex(v[x_indx+1][y_indx].x, v[x_indx+1][y_indx].y, v[x_indx+1][y_indx].z);
-            myp5.vertex(v[x_indx+1][y_indx+1].x, v[x_indx+1][y_indx+1].y, v[x_indx+1][y_indx+1].z);
-            myp5.vertex(v[x_indx][y_indx+1].x, v[x_indx][y_indx+1].y, v[x_indx][y_indx+1].z);
-            myp5.endShape(myp5.CLOSE);
+            myp5.graphics.beginShape();
+            myp5.graphics.vertex(v[x_indx][y_indx].x, v[x_indx][y_indx].y, v[x_indx][y_indx].z);
+            myp5.graphics.vertex(v[x_indx+1][y_indx].x, v[x_indx+1][y_indx].y, v[x_indx+1][y_indx].z);
+            myp5.graphics.vertex(v[x_indx+1][y_indx+1].x, v[x_indx+1][y_indx+1].y, v[x_indx+1][y_indx+1].z);
+            myp5.graphics.vertex(v[x_indx][y_indx+1].x, v[x_indx][y_indx+1].y, v[x_indx][y_indx+1].z);
+            myp5.graphics.endShape(myp5.graphics.CLOSE);
           }
         }
       }
-      myp5.pop();
+      myp5.graphics.pop();
     
       v = [];
       let f = parabola_Equation(a_val,b_val) * scale
       a_val = a_val * scale;
       b_val = b_val * scale;
       
-      myp5.push();
-      myp5.translate(a_val, b_val, f);
-      myp5.sphere(5) //point on parabola
-      myp5.pop();
+      myp5.graphics.push();
+      myp5.graphics.translate(a_val, b_val, f);
+      myp5.graphics.sphere(5) //point on parabola
+      myp5.graphics.pop();
     
-      myp5.push()
-      myp5.translate(a_val,b_val,0);
-      myp5.sphere(5) //point on x-y plane
-      myp5.pop()
+      myp5.graphics.push()
+      myp5.graphics.translate(a_val,b_val,0);
+      myp5.graphics.sphere(5) //point on x-y plane
+      myp5.graphics.pop()
     
       
-      let x_base = myp5.createVector(-150,0,0);
-      let x_vec = myp5.createVector(300,0,0);
-      let y_base = myp5.createVector(0,-150,0);
-      let y_vec = myp5.createVector(0,300,0);
+      let x_base = myp5.graphics.createVector(-150,0,0);
+      let x_vec = myp5.graphics.createVector(300,0,0);
+      let y_base = myp5.graphics.createVector(0,-150,0);
+      let y_vec = myp5.graphics.createVector(0,300,0);
       drawArrow(x_base, x_vec, 'white') // x axis
       drawArrow(y_base, y_vec, 'white') // y axis
-      myp5.push();
-      myp5.stroke('White');
-      myp5.strokeWeight(2);
-      myp5.line(0,0,0,0,0,200) // z axis
-      myp5.pop();
+      myp5.graphics.push();
+      myp5.graphics.stroke('White');
+      myp5.graphics.strokeWeight(2);
+      myp5.graphics.line(0,0,0,0,0,200) // z axis
+      myp5.graphics.pop();
     
       DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
       DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
       DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
+
+      myp5.image(myp5.graphics, 0, 0, myp5.width, myp5.height);
     }
 
     myp5.windowResized = () => {
-      myp5.createCanvas(myp5.windowWidth/2, myp5.windowHeight);
+      myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
     }
     
     function parabola_Equation(x,y) {
@@ -179,16 +185,16 @@ export let paraboloid_sketch = myp5 => {
     }
     
     function DashedLine(X1,Y1,Z1,X2,Y2,Z2) {
-      myp5.push();
+      myp5.graphics.push();
       let d = 5; //dashed line length
-      let P1 = myp5.createVector(X1,Y1,Z1); //point 1
-      let P2 = myp5.createVector(X2,Y2,Z2); //point 2
+      let P1 = myp5.graphics.createVector(X1,Y1,Z1); //point 1
+      let P2 = myp5.graphics.createVector(X2,Y2,Z2); //point 2
       let P21 = p5.Vector.sub(P2, P1); // P2 - P1. 
       let L = p5.Vector.mag(P21); // length of line
       let u = p5.Vector.mult(P21,1/L) //unit vector in direction of line
     
-      myp5.stroke('White');
-      myp5.strokeWeight(2);
+      myp5.graphics.stroke('White');
+      myp5.graphics.strokeWeight(2);
     
       // Calculate n and s
       let n;
@@ -223,24 +229,24 @@ export let paraboloid_sketch = myp5 => {
         let y2 = EndDash.y;
         let z2 = EndDash.z;
     
-        myp5.line(x1,y1,z1,x2,y2,z2);
+        myp5.graphics.line(x1,y1,z1,x2,y2,z2);
       }
-      myp5.pop()
+      myp5.graphics.pop()
     }
     
     function drawArrow(base, vec, myColor) {
-      myp5.push();
-      myp5.stroke(myColor);
-      myp5.strokeWeight(1);
-      myp5.fill(myColor);
-      myp5.translate(base.x, base.y, base.z);
-      myp5.line(0, 0, 0, vec.x, vec.y, vec.z);
-      myp5.rotate(vec.heading());
+      myp5.graphics.push();
+      myp5.graphics.stroke(myColor);
+      myp5.graphics.strokeWeight(1);
+      myp5.graphics.fill(myColor);
+      myp5.graphics.translate(base.x, base.y, base.z);
+      myp5.graphics.line(0, 0, 0, vec.x, vec.y, vec.z);
+      myp5.graphics.rotate(vec.heading());
       let arrowSize = 12;
-      myp5.translate(vec.mag() - arrowSize + 10, 0, 0);
-      myp5.rotateZ(-90);
-      myp5.cone(6, arrowSize);
-      myp5.pop();
+      myp5.graphics.translate(vec.mag() - arrowSize + 10, 0, 0);
+      myp5.graphics.rotateZ(-90);
+      // myp5.graphics.cone(6, arrowSize);
+      myp5.graphics.pop();
     }
 
     function createLabel(value) {
