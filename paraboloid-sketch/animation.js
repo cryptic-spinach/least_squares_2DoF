@@ -28,7 +28,7 @@ export let paraboloid_sketch = myp5 => {
     }
 
     myp5.setup = () => {
-      myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
+      myp5.createCanvas(myp5.windowHeight*1.77/2, myp5.windowHeight);
 
       myp5.graphics = myp5.createGraphics(myp5.width, myp5.height, myp5.WEBGL);
     
@@ -169,7 +169,7 @@ export let paraboloid_sketch = myp5 => {
     }
 
     myp5.windowResized = () => {
-      myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
+      myp5.createCanvas(myp5.windowHeight*1.77/2, myp5.windowHeight);
     }
     
     function parabola_Equation(x,y) {

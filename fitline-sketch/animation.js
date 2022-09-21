@@ -15,7 +15,7 @@ export let sketch_1DoF = myp5 => {
   myp5.paraboloid;
 
   myp5.setup = () => {
-    myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
+    myp5.createCanvas(myp5.windowHeight*1.77/2, myp5.windowHeight);
   
     controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
@@ -90,7 +90,7 @@ export let sketch_1DoF = myp5 => {
   };
 
   myp5.windowResized = () => {
-    myp5.createCanvas(myp5.windowHeight, myp5.windowHeight);
+    myp5.createCanvas(myp5.windowHeight*1.77/2, myp5.windowHeight);
     // myp5.updateDOM();
   }
 
