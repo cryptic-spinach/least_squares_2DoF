@@ -14,7 +14,7 @@ export let sketch_1DoF = myp5 => {
   myp5.stepper;
   myp5.paraboloid;
 
-  myp5.graphics
+  myp5.graphics;
   let centerX;
   let centerY;
 
@@ -33,7 +33,7 @@ export let sketch_1DoF = myp5 => {
     controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
-    myp5.paraboloid = document.querySelector(".paraboloid");
+    // myp5.paraboloid = document.querySelector(".paraboloid");
 
 
     myp5.linearFitPoints = hardcodeLinearFitPoints(myp5);
@@ -99,7 +99,7 @@ export let sketch_1DoF = myp5 => {
     getErrorCurveDisplay(myp5, myp5.stepper, errorCurveCloud, trendline, myp5.linearFitPoints, curveAxes);
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
-    getParaboloidDisplay(myp5, myp5.stepper);
+    // getParaboloidDisplay(myp5, myp5.stepper);
     // getSliderDisplay(myp5, myp5.stepper, sliderLabelA, sliderLabelB);
     // myp5.noLoop()
 
