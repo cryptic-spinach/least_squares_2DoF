@@ -1,8 +1,8 @@
 import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionVecPalette, projectionVecStyles, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, squaresConfig, curveConfig, coordinatesLabelConfig, verticalPalette, parabolaPalette, aSliderConfig, bSliderConfig, paraboloidConfig} from "./configs.js";
 
 export function controlsInit() {
-    let gui = new dat.GUI();
-    gui.width = 300;
+    // let gui = new dat.GUI();
+    // gui.width = 300;
     
     // gui.addColor(palette, "backgroundFill").name("Background Fill");
 
