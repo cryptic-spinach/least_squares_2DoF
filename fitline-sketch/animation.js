@@ -100,7 +100,7 @@ export let sketch_1DoF = myp5 => {
     getCoordinateLabelDisplay(myp5, myp5.stepper, trendline, linearFitCloud.points);
     getStaticCoordinateLabelDisplay(myp5, myp5.stepper, myp5.originalTrendline, linearFitCloud.points);
     getParaboloidDisplay(myp5, myp5.stepper);
-    getSliderDisplay(myp5, myp5.stepper, sliderLabelA, sliderLabelB);
+    // getSliderDisplay(myp5, myp5.stepper, sliderLabelA, sliderLabelB);
     // myp5.noLoop()
 
     myp5.image(myp5.graphics, 0, 0, myp5.width, myp5.height);
