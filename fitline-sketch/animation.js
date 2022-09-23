@@ -14,6 +14,10 @@ export let sketch_1DoF = myp5 => {
   myp5.stepper;
   myp5.paraboloid;
 
+  myp5.graphics
+  let centerX;
+  let centerY;
+
   myp5.setup = () => {
     if (myp5.windowWidth/myp5.windowHeight > 1.77) {
       myp5.createCanvas(myp5.windowHeight*1.77/2, myp5.windowHeight);
@@ -21,6 +25,10 @@ export let sketch_1DoF = myp5 => {
     else {
       myp5.createCanvas(myp5.windowWidth/2, myp5.windowWidth/1.77);
     }
+
+    myp5.graphics = myp5.createGraphics(myp5.width, myp5.height);
+    centerX = myp5.width/2;
+    centerY = myp5.height/2;
   
     controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
@@ -41,6 +49,8 @@ export let sketch_1DoF = myp5 => {
   };
 
   myp5.draw = () => {
+    myp5.graphics.clear();
+
     myp5.background(palette.backgroundFill);
     myp5.translate(myp5.windowWidth/2/2, myp5.windowHeight/2);
     myp5.scale(1, -1);
@@ -92,6 +102,9 @@ export let sketch_1DoF = myp5 => {
     getParaboloidDisplay(myp5, myp5.stepper);
     getSliderDisplay(myp5, myp5.stepper, sliderLabelA, sliderLabelB);
     // myp5.noLoop()
+
+    myp5.image(myp5.graphics, 0, 0, myp5.width, myp5.height);
+    myp5.graphics.reset();
   };
 
   myp5.windowResized = () => {
