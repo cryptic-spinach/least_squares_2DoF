@@ -21,10 +21,10 @@ export let sketch_1DoF = myp5 => {
       myp5.createCanvas(myp5.windowWidth/2, myp5.windowWidth/1.77);
     }
 
-    myp5.graphics = myp5.createGraphics(myp5.width, myp5.height);
+    myp5.graphics = myp5.createGraphics(1920/2, 1080);
 
-    centerX = myp5.width/2;
-    centerY = myp5.height/2;
+    centerX = 1920/2/2;
+    centerY = 1080/2;
   
     //controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
