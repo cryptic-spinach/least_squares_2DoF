@@ -16,6 +16,7 @@ body {
 
 .b-slider {
     position: absolute;
+    top: 30px;
 }
 
 .slider-container {

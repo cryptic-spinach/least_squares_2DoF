@@ -82,8 +82,9 @@ export let sketch_1DoF = myp5 => {
   }
 
   myp5.updateDOM = () => {
-    // myp5.aSlider.style.transform = "scale(2)"
-    // myp5.bSlider.style.transform = "scale(2)"
+    let windowSize = myp5.windowWidth*myp5.windowHeight;
+    let scaleFactor = windowSize/900000;
+    myp5.sliderContainer.style.transform = "scale(" + scaleFactor + ")"
   }
   
 };
