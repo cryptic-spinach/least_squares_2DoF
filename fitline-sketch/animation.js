@@ -30,7 +30,7 @@ export let sketch_1DoF = myp5 => {
     myp5.bSlider = document.querySelector(".b-slider");
 
 
-    myp5.linearFitPoints = hardcodeLinearFitPoints(myp5);
+    myp5.linearFitPoints = hardcodeLinearFitPoints();
     //linearFitPoints = generateLinearFitPoints(myp5, 5);
   };
 
@@ -84,5 +84,4 @@ export let sketch_1DoF = myp5 => {
     positionBSlider(myp5, myp5.bSlider)
   }
   
-
 };

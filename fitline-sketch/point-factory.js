@@ -40,7 +40,7 @@ export function generateErrorCurvePoints(myp5, points) {
 }
 
 
-export function hardcodeLinearFitPoints(myp5) {
+export function hardcodeLinearFitPoints() {
   let ret = [];
 
   let pointData = [ { "x": -130, "y": -40, "label": "1" }, { "x": -90, "y": 40, "label": "2" }, { "x": -30, "y": 60, "label": "3" }, { "x": 30, "y": 150, "label": "4" }, { "x": 70, "y": 200, "label": "5" }, { "x": 130, "y": 210, "label": "6" } ]
