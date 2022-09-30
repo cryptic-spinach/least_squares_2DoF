@@ -82,8 +82,8 @@ export let sketch_1DoF = myp5 => {
   }
 
   myp5.updateDOM = () => {
-    let windowSize = myp5.windowWidth*myp5.windowHeight;
-    let scaleFactor = windowSize/900000;
+    let windowSize = myp5.width*myp5.height*2;
+    let scaleFactor = windowSize/800000;
     myp5.sliderContainer.style.transform = "scale(" + scaleFactor + ")"
   }
   
