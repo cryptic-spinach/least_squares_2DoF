@@ -8,6 +8,7 @@ export let sketch_1DoF = myp5 => {
   myp5.bSlider;
   myp5.linearFitPoints;
   myp5.graphics;
+  myp5.sliderContainer;
 
   let centerX;
   let centerY;
@@ -28,6 +29,7 @@ export let sketch_1DoF = myp5 => {
     //controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
+    myp5.sliderContainer = document.querySelector(".slider-container");
 
 
     myp5.linearFitPoints = hardcodeLinearFitPoints();
@@ -80,8 +82,8 @@ export let sketch_1DoF = myp5 => {
   }
 
   myp5.updateDOM = () => {
-    positionASlider(myp5, myp5.aSlider)
-    positionBSlider(myp5, myp5.bSlider)
+    // myp5.aSlider.style.transform = "scale(2)"
+    // myp5.bSlider.style.transform = "scale(2)"
   }
   
 };
