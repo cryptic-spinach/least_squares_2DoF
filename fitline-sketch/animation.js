@@ -37,12 +37,12 @@ export let sketch_1DoF = myp5 => {
   };
 
   myp5.draw = () => {
-    myp5.graphics.clear();
-
     myp5.background(palette.backgroundFill);
-    myp5.translate(centerX, centerY);
-    myp5.scale(1, -1);
-    myp5.angleMode(myp5.RADIANS);
+
+    myp5.graphics.clear();
+    myp5.graphics.translate(centerX, centerY);
+    myp5.graphics.scale(1, -1);
+    myp5.graphics.angleMode(myp5.RADIANS);
     myp5.updateDOM();
 
     let trendlineAxes = new Axes(axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "x", "y");

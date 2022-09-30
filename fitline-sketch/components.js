@@ -9,36 +9,36 @@ export class Point {
     }
 
     show(myp5, myStroke = palette.pointStroke, myFill = palette.pointFill) {
-        let strokeWithOpacity = myp5.color(myStroke);
+        let strokeWithOpacity = myp5.graphics.color(myStroke);
         strokeWithOpacity.setAlpha(styles.pointStrokeOpacity);
 
-        let fillWithOpacity = myp5.color(myFill);
+        let fillWithOpacity = myp5.graphics.color(myFill);
         fillWithOpacity.setAlpha(styles.pointFillOpacity);
 
-        myp5.push();
-        myp5.fill(fillWithOpacity);
-        myp5.stroke(strokeWithOpacity);
-        myp5.strokeWeight(styles.pointStrokeWeight);
-        myp5.ellipse(this.x, this.y, styles.pointRadius, styles.pointRadius);
-        myp5.pop();
+        myp5.graphics.push();
+        myp5.graphics.fill(fillWithOpacity);
+        myp5.graphics.stroke(strokeWithOpacity);
+        myp5.graphics.strokeWeight(styles.pointStrokeWeight);
+        myp5.graphics.ellipse(this.x, this.y, styles.pointRadius, styles.pointRadius);
+        myp5.graphics.pop();
     }
 
     showLabel(myp5, myColor = palette.labelFill, myOpacity = styles.labelOpacity, xOffset = styles.labelOffsetX, yOffset = styles.labelOffsetY, myTextSize = styles.labelTextSize, myStrokeWeight = 1) {
-        let colorWithOpacity = myp5.color(myColor);
+        let colorWithOpacity = myp5.graphics.color(myColor);
         colorWithOpacity.setAlpha(myOpacity)
 
-        myp5.push();
-        myp5.translate(this.x, this.y)
-        myp5.scale(1, -1);
+        myp5.graphics.push();
+        myp5.graphics.translate(this.x, this.y)
+        myp5.graphics.scale(1, -1);
 
 
-        myp5.stroke(myColor);
-        myp5.fill(colorWithOpacity);
-        myp5.strokeWeight(myStrokeWeight)
-        myp5.textSize(myTextSize);
-        myp5.text(this.label, xOffset, yOffset)
+        myp5.graphics.stroke(myColor);
+        myp5.graphics.fill(colorWithOpacity);
+        myp5.graphics.strokeWeight(myStrokeWeight)
+        myp5.graphics.textSize(myTextSize);
+        myp5.graphics.text(this.label, xOffset, yOffset)
 
-        myp5.pop();
+        myp5.graphics.pop();
     }
 
     showCoordinates(myp5, needsFlip) {
@@ -68,7 +68,7 @@ export class Segment {
     }
 
     getSlopeVec(myp5) {
-        return myp5.createVector(this.point_2.x - this.point_1.x, this.point_2.y - this.point_1.y);
+        return myp5.graphics.createVector(this.point_2.x - this.point_1.x, this.point_2.y - this.point_1.y);
     }
 
     getNumericSlope(myp5) {
@@ -85,7 +85,7 @@ export class Segment {
     getPerpendicularDistance(myp5, m) {
         // Choose the origin along l.
         // Create a vector u with tip at m.
-        let u = myp5.createVector(m.x - this.point_1.x, m.y - this.point_1.y); 
+        let u = myp5.graphics.createVector(m.x - this.point_1.x, m.y - this.point_1.y); 
 
         // Create unit vector v pointing along l.
         let v = this.getSlopeVec(myp5).normalize();
@@ -185,14 +185,14 @@ export class Segment {
 
     showAsLine(myp5, myColor = palette.segmentFill, myWeight = styles.segmentWeight, myOpacity = styles.segmentOpacity) {
 
-        let colorWithOpacity = myp5.color(myColor);
+        let colorWithOpacity = myp5.graphics.color(myColor);
         colorWithOpacity.setAlpha(myOpacity)
-        myp5.push();
-        myp5.stroke(colorWithOpacity);
-        myp5.strokeWeight(myWeight);
-        myp5.fill(colorWithOpacity);
-        myp5.line(this.point_1.x, this.point_1.y, this.point_2.x, this.point_2.y);
-        myp5.push();
+        myp5.graphics.push();
+        myp5.graphics.stroke(colorWithOpacity);
+        myp5.graphics.strokeWeight(myWeight);
+        myp5.graphics.fill(colorWithOpacity);
+        myp5.graphics.line(this.point_1.x, this.point_1.y, this.point_2.x, this.point_2.y);
+        myp5.graphics.push();
     }
 
     showAsDashedLine(myp5) {
@@ -247,20 +247,20 @@ export class Segment {
     }
 
     showVec(myp5, base, vec, myColor, myWeight, myOpacity, showArrowTip) {
-        let colorWithOpacity = myp5.color(myColor);
+        let colorWithOpacity = myp5.graphics.color(myColor);
         colorWithOpacity.setAlpha(myOpacity)
-        myp5.push();
-        myp5.stroke(colorWithOpacity);
-        myp5.strokeWeight(myWeight);
-        myp5.fill(colorWithOpacity);
-        myp5.translate(base.x, base.y);
-        myp5.line(0, 0, vec.x, vec.y);
+        myp5.graphics.push();
+        myp5.graphics.stroke(colorWithOpacity);
+        myp5.graphics.strokeWeight(myWeight);
+        myp5.graphics.fill(colorWithOpacity);
+        myp5.graphics.translate(base.x, base.y);
+        myp5.graphics.line(0, 0, vec.x, vec.y);
         if(showArrowTip) {
-            myp5.rotate(vec.heading());
-            myp5.translate(vec.mag() - styles.segmentArrowSize, 0);
-            myp5.triangle(0, styles.segmentArrowSize / 2, 0, -styles.segmentArrowSize / 2, styles.segmentArrowSize, 0);
+            myp5.graphics.rotate(vec.heading());
+            myp5.graphics.translate(vec.mag() - styles.segmentArrowSize, 0);
+            myp5.graphics.triangle(0, styles.segmentArrowSize / 2, 0, -styles.segmentArrowSize / 2, styles.segmentArrowSize, 0);
         }
-        myp5.pop();
+        myp5.graphics.pop();
     }
 
     showPerpendicularDistance(myp5, m) {
@@ -276,14 +276,14 @@ export class Segment {
 
     showSquaredError(myp5, m) {
         let vertDist = this.getVerticalDistance(myp5, m);
-        let myColor = myp5.color(squaresConfig.fill);
+        let myColor = myp5.graphics.color(squaresConfig.fill);
         myColor.setAlpha(squaresConfig.opacity);
         if (vertDist != null) {
-            myp5.push();
-            myp5.noStroke();
-            myp5.fill(myColor);
-            myp5.rect(m.x, m.y, vertDist.y, vertDist.y);
-            myp5.pop();
+            myp5.graphics.push();
+            myp5.graphics.noStroke();
+            myp5.graphics.fill(myColor);
+            myp5.graphics.rect(m.x, m.y, vertDist.y, vertDist.y);
+            myp5.graphics.pop();
         }
     }
 
@@ -291,10 +291,10 @@ export class Segment {
     rotateSegmentByAngle(myp5, theta, rotateAboutPoint) {
         let phi = Math.atan(theta);
 
-        let vec1 = myp5.createVector(this.point_1.x - rotateAboutPoint.x, this.point_1.y - rotateAboutPoint.y)
+        let vec1 = myp5.graphics.createVector(this.point_1.x - rotateAboutPoint.x, this.point_1.y - rotateAboutPoint.y)
         let transVec1 = vec1.copy().rotate(phi);
 
-        let vec2 = myp5.createVector(this.point_2.x - rotateAboutPoint.x, this.point_2.y - rotateAboutPoint.y)
+        let vec2 = myp5.graphics.createVector(this.point_2.x - rotateAboutPoint.x, this.point_2.y - rotateAboutPoint.y)
         let transVec2 = vec2.copy().rotate(phi);
 
         this.updatePoint1(transVec1, rotateAboutPoint);
