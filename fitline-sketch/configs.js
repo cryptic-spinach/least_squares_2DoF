@@ -1,12 +1,12 @@
 export let palette = { 
-    backgroundFill: "#334084",
+    backgroundFill: "#3a783a", // Background Fill
 
     pointStroke: "#42f595", 
-    pointFill: "#000000",
+    pointFill: "#42f595",
 
     labelFill: "#1fced9",
 
-    segmentFill: "#20c5c5",
+    segmentFill: "#014616", // Axis Stroke
 };
 
 export let projectionVecPalette = {
@@ -76,12 +76,12 @@ export let coordinatesLabelConfig = {
 
 export let axisConfig = {
     x: 0,
-    y: 0,
-    right: 250,
-    up: 250,
-    left: 250,
-    down: 250,
-    axisOpacity: 160,
+    y: -90,
+    right: 350,
+    up: 350,
+    left: 350,
+    down: 350,
+    axisOpacity: 255,
     horizontalLabelXOffset: 20,
     horizontalLabelYOffset: 9,
     verticalLabelXOffset: -8,
@@ -89,7 +89,7 @@ export let axisConfig = {
 }
 
 export let axisPalette = {
-    fill: "#20c5c5",
+    fill: "#ffffff",
 }
 
 export let sliderConfig = { 
@@ -133,8 +133,8 @@ export let trendlineLabelConfig = {
 }
 
 export let squaresConfig = {
-    opacity: 100,
-    fill: "#ffbe26"
+    opacity: 50,
+    fill: "#ffffff" // Squares Fill
 }
 
 export let curveConfig = {

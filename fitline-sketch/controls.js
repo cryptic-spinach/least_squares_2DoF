@@ -1,10 +1,17 @@
-import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionVecPalette, projectionVecStyles, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, squaresConfig, curveConfig, coordinatesLabelConfig, verticalPalette, parabolaPalette, aSliderConfig, bSliderConfig, paraboloidConfig} from "./configs.js";
+import { axisConfig, sliderConfig, palette, styles, trendlineConfig, projectionVecPalette, projectionVecStyles, stepperButtonConfig, sliderLabelConfig, trendlineLabelConfig, squaresConfig, curveConfig, coordinatesLabelConfig, verticalPalette, parabolaPalette, aSliderConfig, bSliderConfig, paraboloidConfig, axisPalette} from "./configs.js";
 
 export function controlsInit() {
-    // let gui = new dat.GUI();
-    // gui.width = 300;
+    let gui = new dat.GUI();
+    gui.width = 300;
     
-    // gui.addColor(palette, "backgroundFill").name("Background Fill");
+    gui.addColor(palette, "backgroundFill").name("Background Fill");
+    gui.addColor(palette, "pointStroke").name("Point Stroke");
+    gui.addColor(palette, "pointFill").name("Point Fill");
+    gui.addColor(squaresConfig, "fill").name("Squares Fill");
+    gui.addColor(squaresConfig, "opacity").name("Squares Opacity");
+    gui.addColor(axisPalette, "fill").name("Label Stroke");
+    gui.addColor(palette, "segmentFill").name("Axis Stroke");
+
 
     // gui.add(paraboloidConfig, "x", 0, 500).name("paraboloid x");
     // gui.add(paraboloidConfig, "y", -500, 0).name("paraboloid y");

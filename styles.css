@@ -12,12 +12,45 @@ body {
 
 .a-slider {
     position: absolute;
+    -webkit-appearance: none;
+  
+    background: none;
+    height:16px;
+    width:200px;
+    border-radius: 8px;
+    border: 2px solid #d8e698;
 }
 
 .b-slider {
     position: absolute;
     top: 30px;
+
+    -webkit-appearance: none;
+  
+    background: none;
+    height:16px;
+    width:200px;
+    border-radius: 8px;
+    border: 2px solid #d8e698;
 }
+
+.a-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width:12px;
+    height:12px;
+    border-radius: 6px;
+    background: #d8e698;
+    outline: none;
+  }
+
+.b-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width:12px;
+    height:12px;
+    border-radius: 6px;
+    background: #d8e698;
+    outline: none;
+  }
 
 .slider-container {
     position: absolute;
