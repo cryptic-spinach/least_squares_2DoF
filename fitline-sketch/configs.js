@@ -1,8 +1,8 @@
 export let palette = { 
     backgroundFill: "#3a783a", // Background Fill
 
-    pointStroke: "#42f595", 
-    pointFill: "#42f595",
+    pointStroke: "#054822", // Point Stroke
+    pointFill: "#0bd401", // Point Fill
 
     labelFill: "#1fced9",
 
@@ -133,8 +133,8 @@ export let trendlineLabelConfig = {
 }
 
 export let squaresConfig = {
-    opacity: 50,
-    fill: "#ffffff" // Squares Fill
+    opacity: 100,
+    fill: "#ffdc77" // Squares Fill
 }
 
 export let curveConfig = {
