@@ -43,7 +43,6 @@ export let sketch_1DoF = myp5 => {
     myp5.graphics.translate(centerX, centerY);
     myp5.graphics.scale(1, -1);
     myp5.graphics.angleMode(myp5.RADIANS);
-    myp5.updateDOM();
 
     let trendlineAxes = new Axes(axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "x", "y");
     let trendlineStart = new Point(  - axisConfig.left + axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * 100);
@@ -79,12 +78,6 @@ export let sketch_1DoF = myp5 => {
     else {
       myp5.resizeCanvas(myp5.windowWidth/2, myp5.windowWidth/1.77);
     }
-  }
-
-  myp5.updateDOM = () => {
-    let windowSize = myp5.width*myp5.height*2;
-    let scaleFactor = windowSize/800000;
-    //myp5.sliderContainer.style.transform = "scale(" + scaleFactor + ")"
   }
   
 };
