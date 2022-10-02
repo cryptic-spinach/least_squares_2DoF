@@ -152,19 +152,26 @@ export let paraboloid_sketch = myp5 => {
       myp5.graphics.translate(a_val,b_val,0);
       myp5.graphics.sphere(5) //point on x-y plane
       myp5.graphics.pop()
+
+
+      drawLine(150, 0, 0);
+      drawLine(-150, 0, 0);
+      drawLine(0, 150, 0);
+      drawLine(0, -150, 0);
+      drawLine(0, 0, 200);
     
-      
-      let x_base = myp5.graphics.createVector(-150,0,0);
-      let x_vec = myp5.graphics.createVector(300,0,0);
-      let y_base = myp5.graphics.createVector(0,-150,0);
-      let y_vec = myp5.graphics.createVector(0,300,0);
-      drawArrow(x_base, x_vec, 'white') // x axis
-      drawArrow(y_base, y_vec, 'white') // y axis
-      myp5.graphics.push();
-      myp5.graphics.stroke('White');
-      myp5.graphics.strokeWeight(2);
-      myp5.graphics.line(0,0,0,0,0,200) // z axis
-      myp5.graphics.pop();
+      drawCone(150, 0, 0, 0, 0, -90);
+      drawCone(-150, 0, 0, 0, 0, 90);
+      drawCone(0, 150, 0, 0, 0, 0);
+      drawCone(0, -150, 0, 0, 0, 180);
+      drawCone(0, 0, 200, 90, 0, 0);
+
+
+      // myp5.graphics.push();
+      // myp5.graphics.stroke('White');
+      // myp5.graphics.strokeWeight(2);
+      // myp5.graphics.line(0,0,0,0,0,200) // z axis
+      // myp5.graphics.pop();
     
       DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
       DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
@@ -244,18 +251,26 @@ export let paraboloid_sketch = myp5 => {
       myp5.graphics.pop()
     }
     
-    function drawArrow(base, vec, myColor) {
+
+    function drawLine(x, y, z) {
       myp5.graphics.push();
-      myp5.graphics.stroke(myColor);
+      myp5.graphics.stroke("White");
+      myp5.graphics.strokeWeight(2);
+      myp5.graphics.fill("White");
+      myp5.graphics.line(0, 0, 0, x, y, z);
+      myp5.graphics.pop();
+    }
+    
+    function drawCone(x, y, z, thetaX, thetaY, thetaZ) {
+      myp5.graphics.push()
+      myp5.graphics.stroke("White");
       myp5.graphics.strokeWeight(1);
-      myp5.graphics.fill(myColor);
-      myp5.graphics.translate(base.x, base.y, base.z);
-      myp5.graphics.line(0, 0, 0, vec.x, vec.y, vec.z);
-      myp5.graphics.rotate(vec.heading());
-      let arrowSize = 12;
-      myp5.graphics.translate(vec.mag() - arrowSize + 10, 0, 0);
-      myp5.graphics.rotateZ(-90);
-      // myp5.graphics.cone(6, arrowSize);
+      myp5.graphics.fill("White");
+      myp5.graphics.translate(x, y, z);
+      myp5.graphics.rotateX(thetaX);
+      myp5.graphics.rotateY(thetaY);
+      myp5.graphics.rotateZ(thetaZ);
+      myp5.graphics.cone(6, 12);
       myp5.graphics.pop();
     }
 
