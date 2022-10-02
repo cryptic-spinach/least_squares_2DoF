@@ -1,5 +1,4 @@
 import { axisConfig, palette, styles} from "./configs.js";
-import { positionASlider, positionBSlider} from "./helpers.js"
 import { Point, Segment, Axes, PointCloud} from "./components.js";
 import { hardcodeLinearFitPoints } from "./point-factory.js";
 
