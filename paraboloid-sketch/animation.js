@@ -17,9 +17,6 @@ export let paraboloid_sketch = myp5 => {
     myp5.a_slider, 
     myp5.b_slider;
     let a_text, b_text;
-    let a_label //label a
-    let b_label //label b
-    let Error_label //label Error
     
     myp5.graphics;
 
@@ -39,10 +36,6 @@ export let paraboloid_sketch = myp5 => {
     
       myp5.graphics.angleMode(myp5.DEGREES);
       myp5.graphics.colorMode(myp5.RGB);
-
-      a_label = createLabel('a')
-      b_label = createLabel('b')
-      Error_label = createLabel('error')
 
       myp5.graphics.stroke(67, 162, 209);
       myp5.graphics.strokeWeight(2);
@@ -66,39 +59,6 @@ export let paraboloid_sketch = myp5 => {
 
       myp5.graphics.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
 
-        //Add axes labels
-        myp5.graphics.push()
-        myp5.graphics.translate(170,0,0)
-        myp5.graphics.rotateZ(-zRotation);
-        myp5.graphics.rotateX(270)
-        myp5.graphics.strokeWeight(0)
-        myp5.graphics.textSize(40)
-        myp5.graphics.textFont(inconsolata);
-        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.graphics.text('a', 0, 0);
-        myp5.graphics.pop()
-        //y axis label "b"
-        myp5.graphics.push()
-        myp5.graphics.translate(0,170,0)
-        myp5.graphics.rotateZ(-zRotation);
-        myp5.graphics.rotateX(270)
-        myp5.graphics.strokeWeight(0)
-        myp5.graphics.textSize(40)
-        myp5.graphics.textFont(inconsolata);
-        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.graphics.text('b', 0, 0);
-        myp5.graphics.pop()
-        //z axis label "Error"
-        myp5.graphics.push()
-        myp5.graphics.translate(0,0,240);
-        myp5.graphics.rotateZ(-zRotation);
-        myp5.graphics.rotateX(270)
-        myp5.graphics.strokeWeight(0)
-        myp5.graphics.textSize(40)
-        myp5.graphics.textFont(inconsolata);
-        myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
-        myp5.graphics.text('Error', 0, 0);
-        myp5.graphics.pop()
     
       let a_val = parseFloat(myp5.a_slider.value); // meters
       let b_val = parseFloat(myp5.b_slider.value); // meters
@@ -153,7 +113,6 @@ export let paraboloid_sketch = myp5 => {
       myp5.graphics.sphere(5) //point on x-y plane
       myp5.graphics.pop()
 
-
       drawLine(150, 0, 0);
       drawLine(-150, 0, 0);
       drawLine(0, 150, 0);
@@ -165,17 +124,14 @@ export let paraboloid_sketch = myp5 => {
       drawCone(0, 150, 0, 0, 0, 0);
       drawCone(0, -150, 0, 0, 0, 180);
       drawCone(0, 0, 200, 90, 0, 0);
-
-
-      // myp5.graphics.push();
-      // myp5.graphics.stroke('White');
-      // myp5.graphics.strokeWeight(2);
-      // myp5.graphics.line(0,0,0,0,0,200) // z axis
-      // myp5.graphics.pop();
     
       DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
       DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
       DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
+
+      drawLabel(170,0,0,"a");
+      drawLabel(0,170,0,"b");
+      drawLabel(0,0,240,"Error");
 
       myp5.image(myp5.graphics, 0, 0, myp5.width, myp5.height);
     }
@@ -274,15 +230,18 @@ export let paraboloid_sketch = myp5 => {
       myp5.graphics.pop();
     }
 
-    function createLabel(value) {
-      let lbl = myp5.createGraphics(100, 20);
-      lbl.background(0,0);
-      lbl.noStroke();
-      lbl.fill(255);
-      lbl.textSize(32);
-      lbl.text(value, 0, 20);
-      
-      return lbl;
+    function drawLabel(x, y, z, label) {
+      myp5.graphics.push()
+      myp5.graphics.translate(x, y, z)
+      myp5.graphics.rotateZ(-zRotation);
+      myp5.graphics.rotateX(270)
+      myp5.graphics.strokeWeight(0)
+      myp5.graphics.textSize(40)
+      myp5.graphics.textFont(inconsolata);
+      myp5.graphics.textAlign(myp5.CENTER, myp5.CENTER);
+      myp5.graphics.text(label, 0, 0);
+      myp5.graphics.pop()
     }
+
     
     };
