@@ -42,14 +42,14 @@ export let styles = {
     pointStrokeOpacity: 255,
     pointFillOpacity: 255,
 
-    labelTextSize: 35,
+    labelTextSize: 80, // Axis Label Size
     labelOffsetX: 30,
     labelOffsetY: 0,
-    labelOpacity: 40,
+    labelOpacity: 255, // Label Opacity
 
     
-    segmentArrowSize: 15,
-    segmentWeight: 2,
+    segmentArrowSize: 25, // Axis Arrow Size
+    segmentWeight: 6, // Axis Stroke Width
     segmentOpacity: 160
 }
 
@@ -82,14 +82,14 @@ export let axisConfig = {
     left: 350,
     down: 350,
     axisOpacity: 255,
-    horizontalLabelXOffset: 20,
-    horizontalLabelYOffset: 9,
-    verticalLabelXOffset: -8,
-    verticalLabelYOffset: -26,
+    horizontalLabelXOffset: 27,
+    horizontalLabelYOffset: 18.3,
+    verticalLabelXOffset: 32,
+    verticalLabelYOffset: 6,
 }
 
 export let axisPalette = {
-    fill: "#ffffff",
+    fill: "#ffdc77", // Axis label fill
 }
 
 export let sliderConfig = { 

@@ -26,7 +26,7 @@ export let sketch_1DoF = myp5 => {
     centerX = 1920/2/2;
     centerY = 1080/2;
   
-    controlsInit();
+    //controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
     myp5.sliderContainer = document.querySelector(".slider-container");

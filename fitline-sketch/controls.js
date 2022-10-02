@@ -8,9 +8,20 @@ export function controlsInit() {
     gui.addColor(palette, "pointStroke").name("Point Stroke");
     gui.addColor(palette, "pointFill").name("Point Fill");
     gui.addColor(squaresConfig, "fill").name("Squares Fill");
-    gui.addColor(squaresConfig, "opacity").name("Squares Opacity");
+    gui.add(squaresConfig, "opacity", 0, 255).name("Squares Opacity");
     gui.addColor(axisPalette, "fill").name("Label Stroke");
+    // gui.addColor(sliderLabelConfig, "labelFill").name("Label Fill");
+    gui.add(styles, "labelTextSize", 0, 100).name("Label Size");
+    gui.add(styles, "labelOpacity", 0, 255).name("Label Opacity");
+
+
+    
     gui.addColor(palette, "segmentFill").name("Axis Stroke");
+
+    gui.add(axisConfig, "horizontalLabelXOffset", -100, 100).name("horizontalLabelXOffset");
+    gui.add(axisConfig, "horizontalLabelYOffset", -100, 100).name("horizontalLabelYOffset");
+    gui.add(axisConfig, "verticalLabelXOffset", -100, 100).name("verticalLabelXOffset");
+    gui.add(axisConfig, "verticalLabelYOffset", -100, 100).name("verticalLabelYOffset");
 
 
     // gui.add(paraboloidConfig, "x", 0, 500).name("paraboloid x");
@@ -66,10 +77,7 @@ export function xyGUI(gui) {
     gui.add(stepperButtonConfig, "y", -500, 0).name("button y");
     gui.add(curveConfig, "x", 0, 550).name("curve x");
     gui.add(curveConfig, "y", -400, 400).name("curve y");
-    // gui.add(axisConfig, "horizontalLabelXOffset", -100, 100).name("horizontalLabelXOffset");
-    // gui.add(axisConfig, "horizontalLabelYOffset", -100, 100).name("horizontalLabelYOffset");
-    // gui.add(axisConfig, "verticalLabelXOffset", -100, 100).name("verticalLabelXOffset");
-    // gui.add(axisConfig, "verticalLabelYOffset", -100, 100).name("verticalLabelYOffset");
+
 }
 
 export function strokeAndFillGUI(gui) {
