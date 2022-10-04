@@ -54,7 +54,9 @@ export let paraboloid_sketch = myp5 => {
       myp5.graphics.camera(0, 500, 200)
       // myp5.rotateX(90);
 
-      zRotation += 0.2 % 360;
+      zRotation += 0.2;
+      zRotation = zRotation % 360;
+      
       myp5.graphics.rotateZ(zRotation);
 
       myp5.graphics.translate(0, 0, -movedown*scale); // set origin lower by amount movedown
