@@ -28,6 +28,7 @@ input[type="range"]::-moz-range-thumb {
     width:200px;
     border-radius: 8px;
     border: 2px solid #d8e698;
+    width: 100%;
 }
 
 .b-slider {
@@ -41,6 +42,7 @@ input[type="range"]::-moz-range-thumb {
     width:200px;
     border-radius: 8px;
     border: 2px solid #d8e698;
+    width: 100%;
 }
 
 .a-slider::-webkit-slider-thumb {
@@ -62,5 +64,6 @@ input[type="range"]::-moz-range-thumb {
   }
 
 .slider-container {
-    position: absolute;
+    position: relative;
+    width: 40%;
 }
