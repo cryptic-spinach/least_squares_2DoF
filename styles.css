@@ -12,7 +12,7 @@ body {
 
 .slider-container {
     position: relative;
-    width: 40%;
+    width: 30%;
 }
 
 .a-label-position {
@@ -23,18 +23,18 @@ body {
 
 .a-slider-position {
     position: absolute;
-    top: 20px;
+    top: 40px;
 }
 
 .b-label-position {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 5px;
 }
 
 .b-slider-position {
     position: absolute;
-    top: 80px;
+    top: 110px;
 }
 
 
@@ -89,3 +89,12 @@ input[type="range"]::-moz-range-thumb {
     outline: none;
   }
 
+.a-label {
+    color: #d8e698;
+    font-size: 30px;
+}
+
+.b-label {
+    color: #d8e698;
+    font-size: 30px;
+}
