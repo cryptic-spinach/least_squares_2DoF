@@ -42,14 +42,14 @@ export let styles = {
     pointStrokeOpacity: 255,
     pointFillOpacity: 255,
 
-    labelTextSize: 80, // Axis Label Size
+    labelTextSize: 40, // Axis Label Size
     labelOffsetX: 30,
     labelOffsetY: 0,
     labelOpacity: 255, // Label Opacity
 
     
-    segmentArrowSize: 25, // Axis Arrow Size
-    segmentWeight: 6, // Axis Stroke Width
+    segmentArrowSize: 15, // Axis Arrow Size
+    segmentWeight: 4, // Axis Stroke Width
     segmentOpacity: 160
 }
 
@@ -76,11 +76,11 @@ export let coordinatesLabelConfig = {
 
 export let axisConfig = {
     x: 0,
-    y: -90,
-    right: 350,
-    up: 350,
-    left: 350,
-    down: 350,
+    y: -110,
+    right: 250,
+    up: 250,
+    left: 250,
+    down: 250,
     axisOpacity: 255,
     horizontalLabelXOffset: 27,
     horizontalLabelYOffset: 18.3,
