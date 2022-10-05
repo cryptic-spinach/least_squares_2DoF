@@ -15,14 +15,28 @@ body {
     width: 40%;
 }
 
+.a-label-position {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+}
+
 .a-slider-position {
     position: absolute;
+    top: 20px;
+}
+
+.b-label-position {
+    position: absolute;
+    top: 60px;
+    left: 5px;
 }
 
 .b-slider-position {
     position: absolute;
-    top: 30px;
+    top: 80px;
 }
+
 
 /* DISPLAY */
 
