@@ -4,23 +4,29 @@ body {
     background-color: #ffffff;
 }
 
-input[type="range"]::-moz-range-thumb {
-    width:10px;
-    height:10px;
-    border-radius: 6px;
-    background: #d8e698;
-    border-color: transparent;
-    outline: none;
-  }
-
 .project-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.a-slider {
+.slider-container {
+    position: relative;
+    width: 40%;
+}
+
+.a-slider-position {
     position: absolute;
+}
+
+.b-slider-position {
+    position: absolute;
+    top: 30px;
+}
+
+/* DISPLAY */
+
+.a-slider {
     -webkit-appearance: none;
   
     background: none;
@@ -32,9 +38,6 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .b-slider {
-    position: absolute;
-    top: 30px;
-
     -webkit-appearance: none;
   
     background: none;
@@ -63,7 +66,12 @@ input[type="range"]::-moz-range-thumb {
     outline: none;
   }
 
-.slider-container {
-    position: relative;
-    width: 40%;
-}
+input[type="range"]::-moz-range-thumb {
+    width:10px;
+    height:10px;
+    border-radius: 6px;
+    background: #d8e698;
+    border-color: transparent;
+    outline: none;
+  }
+
