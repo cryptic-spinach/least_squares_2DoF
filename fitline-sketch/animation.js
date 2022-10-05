@@ -6,6 +6,9 @@ import { controlsInit } from "./controls.js";
 export let sketch_1DoF = myp5 => {
   myp5.aSlider;
   myp5.bSlider;
+  myp5.aSliderLabel
+  myp5.bSliderLabel
+
   myp5.linearFitPoints;
   myp5.graphics;
   myp5.sliderContainer;
@@ -29,6 +32,10 @@ export let sketch_1DoF = myp5 => {
     // controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
+
+    myp5.aSliderLabel = document.querySelector(".a-label");
+    myp5.bSliderLabel = document.querySelector(".b-label");
+
     myp5.sliderContainer = document.querySelector(".slider-container");
 
 
@@ -43,6 +50,9 @@ export let sketch_1DoF = myp5 => {
     myp5.graphics.translate(centerX, centerY);
     myp5.graphics.scale(1, -1);
     myp5.graphics.angleMode(myp5.RADIANS);
+
+    myp5.aSliderLabel.innerHTML = "a = " + parseFloat(myp5.aSlider.value).toFixed(2)
+    myp5.bSliderLabel.innerHTML = "b = " + parseFloat(myp5.bSlider.value).toFixed(2)
 
     let trendlineAxes = new Axes(axisConfig.x, axisConfig.y, axisConfig.right, axisConfig.up, axisConfig.left, axisConfig.down, "x", "y");
     let trendlineStart = new Point(  - axisConfig.left + axisConfig.x, axisConfig.y + parseFloat(myp5.aSlider.value) * 100);
