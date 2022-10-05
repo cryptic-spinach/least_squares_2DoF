@@ -29,7 +29,7 @@ export let sketch_1DoF = myp5 => {
     centerX = 1920/2/2;
     centerY = 1080/2;
   
-    // controlsInit();
+    controlsInit();
     myp5.aSlider = document.querySelector(".a-slider");
     myp5.bSlider = document.querySelector(".b-slider");
 
@@ -67,7 +67,7 @@ export let sketch_1DoF = myp5 => {
 
     // Display
     trendlineAxes.show(myp5);
-    trendline.showAsLine(myp5, "#ffffff", 1.5, styles.segmentOpacity);
+    trendline.showAsLine(myp5, "#ffffff", 4, styles.segmentOpacity);
 
     linearFitCloud.points.forEach(p => {
       trendline.showSquaredError(myp5, p);

@@ -1,13 +1,39 @@
 export let palette = { 
-    backgroundFill: "#3a783a", // Background Fill
+    backgroundFill: "#82bb7a", // Background Fill
 
-    pointStroke: "#054822", // Point Stroke
-    pointFill: "#0bd401", // Point Fill
+    pointStroke: "#014616", // Point Stroke
+    pointFill: "#014616", // Point Fill
 
     labelFill: "#1fced9",
 
     segmentFill: "#014616", // Axis Stroke
 };
+
+export let styles = {
+    pointRadius: 15,
+    pointStrokeWeight: 2,
+    pointStrokeOpacity: 255,
+    pointFillOpacity: 255,
+
+    labelTextSize: 40, // Axis Label Size
+    labelOffsetX: 30,
+    labelOffsetY: 0,
+    labelOpacity: 255, // Label Opacity
+
+    
+    segmentArrowSize: 15, // Axis Arrow Size
+    segmentWeight: 4, // Axis Stroke Width
+    segmentOpacity: 160
+}
+
+export let axisPalette = {
+    fill: "#ffffff", // Axis label fill
+}  
+
+export let squaresConfig = {
+    opacity: 100,
+    fill: "#078207" // Squares Fill
+}
 
 export let projectionVecPalette = {
     uFill: "#05aaaa",
@@ -36,22 +62,7 @@ export let verticalStyles = {
     segmentOpacity: 255
 }
 
-export let styles = {
-    pointRadius: 15,
-    pointStrokeWeight: 2,
-    pointStrokeOpacity: 255,
-    pointFillOpacity: 255,
 
-    labelTextSize: 40, // Axis Label Size
-    labelOffsetX: 30,
-    labelOffsetY: 0,
-    labelOpacity: 255, // Label Opacity
-
-    
-    segmentArrowSize: 15, // Axis Arrow Size
-    segmentWeight: 4, // Axis Stroke Width
-    segmentOpacity: 160
-}
 
 export let canvasConfig = {
     trimX: 0,
@@ -88,9 +99,6 @@ export let axisConfig = {
     verticalLabelYOffset: 6,
 }
 
-export let axisPalette = {
-    fill: "#ffdc77", // Axis label fill
-}
 
 export let sliderConfig = { 
     x: 0, 
@@ -130,11 +138,6 @@ export let trendlineLabelConfig = {
     x: -160,
     y: 181,
     labelFill: "#1fced9"
-}
-
-export let squaresConfig = {
-    opacity: 100,
-    fill: "#ffdc77" // Squares Fill
 }
 
 export let curveConfig = {
