@@ -87,7 +87,7 @@ export let coordinatesLabelConfig = {
 
 export let axisConfig = {
     x: 0,
-    y: -110,
+    y: 0,
     right: 250,
     up: 250,
     left: 250,
