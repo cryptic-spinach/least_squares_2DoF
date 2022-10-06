@@ -127,9 +127,9 @@ export let paraboloid_sketch = myp5 => {
       drawCone(0, -150, 0, 0, 0, 180);
       drawCone(0, 0, 200, 90, 0, 0);
     
-      DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
-      DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
-      DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
+      // DashedLine(a_val, b_val, 0, a_val, b_val, f); //dashed line
+      // DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
+      // DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
 
       drawLabel(170,0,0,"a");
       drawLabel(0,170,0,"b");
