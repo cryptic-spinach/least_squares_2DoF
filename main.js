@@ -9,27 +9,19 @@ export let pointData = [ { "x": -130, "y": -40, "label": "1" }, { "x": -90, "y":
 let sliderContainer = document.querySelector(".slider-container")
 
 if (window.innerWidth/window.innerHeight > (16/9)) {
-    // myp5.createCanvas(myp5.windowHeight*(16/9)/2, myp5.windowHeight);
-    sliderContainer.width = window.innerHeight*(16/9)/3;
-    sliderContainer.height = window.innerHeight;
+    sliderContainer.setAttribute("style", "width:" + (window.innerHeight*(16/9)/3).toString() + "px;" + "height:" + (window.innerHeight).toString() + "px;")
 }
 else {
-    // myp5.createCanvas(myp5.windowWidth/2, myp5.windowWidth/(16/9));
-    sliderContainer.width = window.innerWidth/3;
-    sliderContainer.height = window.innerWidth/(16/9);
+    sliderContainer.setAttribute("style", "width:"  + (window.innerWidth/3).toString() + "px;" + "height:" + (window.innerWidth/(16/9)).toString() + "px;")
 }
 
 window.onresize = () => {
 
     if (window.innerWidth/window.innerHeight > (16/9)) {
-        // myp5.createCanvas(myp5.windowHeight*(16/9)/2, myp5.windowHeight);
-        sliderContainer.width = window.innerHeight*(16/9)/3;
-        sliderContainer.height = window.innerHeight;
+        sliderContainer.setAttribute("style", "width:" + (window.innerHeight*(16/9)/3).toString() + "px;" + "height:" + (window.innerHeight).toString() + "px;")
     }
     else {
-        // myp5.createCanvas(myp5.windowWidth/2, myp5.windowWidth/(16/9));
-        sliderContainer.width = window.innerWidth/3;
-        sliderContainer.height = window.innerWidth/(16/9);
+        sliderContainer.setAttribute("style", "width:"  + (window.innerWidth/3).toString() + "px;" + "height:" + (window.innerWidth/(16/9)).toString() + "px;")
     }
   
 }
