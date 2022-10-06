@@ -4,6 +4,8 @@ import { paraboloid_sketch } from "./paraboloid-sketch/animation.js"
 export let fitline = new p5(sketch_1DoF, document.querySelector(".fitline"));
 export let paraboloid = new p5(paraboloid_sketch, document.querySelector(".paraboloid"));
 
+export let pointData = [ { "x": -130, "y": -40, "label": "1" }, { "x": -90, "y": 40, "label": "2" }, { "x": -30, "y": 60, "label": "3" }, { "x": 30, "y": 150, "label": "4" }, { "x": 70, "y": 200, "label": "5" }, { "x": 130, "y": 210, "label": "6" } ]
+
 let sliderContainer = document.querySelector(".slider-container")
 
 if (window.innerWidth/window.innerHeight > (16/9)) {

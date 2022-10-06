@@ -1,4 +1,4 @@
-import { fitline } from "../main.js"
+import { pointData } from "../main.js";
 
 export let paraboloid_sketch = myp5 => {
 
@@ -148,7 +148,8 @@ export let paraboloid_sketch = myp5 => {
     }
     
     function parabola_Equation(x,y) {
-      let points = fitline.linearFitPoints;
+      
+      let points = pointData;
       let qua_aa  = points.map(p => 1).reduce((partialSum, a) => partialSum + a, 0)                          ; //n
       let qua_bb  = points.map(p => p.x * p.x).reduce((partialSum, a) => partialSum + a, 0)    /(scale*scale); //x1^2 + x2^2 + ...
       let qua_ab  = points.map(p => p.x).reduce((partialSum, a) => partialSum + a, 0) * 2      /scale        ; //2(x1+x2+...)
