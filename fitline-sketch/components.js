@@ -192,7 +192,7 @@ export class Segment {
         myp5.graphics.strokeWeight(myWeight);
         myp5.graphics.fill(colorWithOpacity);
         myp5.graphics.line(this.point_1.x, this.point_1.y, this.point_2.x, this.point_2.y);
-        myp5.graphics.push();
+        myp5.graphics.pop();
     }
 
     showAsDashedLine(myp5) {
