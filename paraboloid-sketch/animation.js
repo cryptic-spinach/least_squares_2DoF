@@ -20,16 +20,20 @@ export let paraboloid_sketch = myp5 => {
     
     myp5.graphics;
 
+    let canvasShare;
+
     myp5.preload = () => {
       inconsolata = myp5.loadFont('paraboloid-sketch/Inconsolata.otf');
     }
 
     myp5.setup = () => {
+      canvasShare = 5/12;
+
       if (myp5.windowWidth/myp5.windowHeight > (16/9)) {
-        myp5.createCanvas(myp5.windowHeight*(16/9)/3, myp5.windowHeight);
+        myp5.createCanvas(myp5.windowHeight * (16/9) * canvasShare, myp5.windowHeight);
       }
       else {
-        myp5.createCanvas(myp5.windowWidth/3, myp5.windowWidth/(16/9));
+        myp5.createCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
       }
 
       myp5.graphics = myp5.createGraphics(myp5.width, myp5.height, myp5.WEBGL);
@@ -140,10 +144,10 @@ export let paraboloid_sketch = myp5 => {
 
     myp5.windowResized = () => {
       if (myp5.windowWidth/myp5.windowHeight > (16/9)) {
-        myp5.resizeCanvas(myp5.windowHeight*(16/9)/3, myp5.windowHeight);
+        myp5.resizeCanvas(myp5.windowHeight*(16/9) * canvasShare, myp5.windowHeight);
       }
       else {
-        myp5.resizeCanvas(myp5.windowWidth/3, myp5.windowWidth/(16/9));
+        myp5.resizeCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
       }
     }
     

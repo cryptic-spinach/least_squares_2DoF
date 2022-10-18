@@ -16,17 +16,22 @@ export let sketch_1DoF = myp5 => {
   let centerX;
   let centerY;
 
+  let canvasShare;
+
   myp5.setup = () => {
+
+    canvasShare = 5/12;
+
     if (myp5.windowWidth/myp5.windowHeight > (16/9)) {
-      myp5.createCanvas(myp5.windowHeight*(16/9)/3, myp5.windowHeight);
+      myp5.createCanvas(myp5.windowHeight * (16/9) * canvasShare, myp5.windowHeight);
     }
     else {
-      myp5.createCanvas(myp5.windowWidth/3, myp5.windowWidth/(16/9));
+      myp5.createCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
     }
 
-    myp5.graphics = myp5.createGraphics(1920/3, 1080);
+    myp5.graphics = myp5.createGraphics(1920 * canvasShare, 1080);
 
-    centerX = 1920/3/2;
+    centerX = 1920 * canvasShare /2;
     centerY = 1080/2;
   
     // controlsInit();
@@ -83,10 +88,10 @@ export let sketch_1DoF = myp5 => {
 
   myp5.windowResized = () => {
     if (myp5.windowWidth/myp5.windowHeight > (16/9)) {
-      myp5.resizeCanvas(myp5.windowHeight*(16/9)/3, myp5.windowHeight);
+      myp5.resizeCanvas(myp5.windowHeight*(16/9) * canvasShare, myp5.windowHeight);
     }
     else {
-      myp5.resizeCanvas(myp5.windowWidth/3, myp5.windowWidth/(16/9));
+      myp5.resizeCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
     }
   }
   
