@@ -9,13 +9,8 @@ export let pointData = [ { "x": -130, "y": -40, "label": "1" }, { "x": -90, "y":
 // Selectors
 export let sliderContainer = document.querySelector(".slider-container");
 
-export let aLabel = document.querySelector(".a-label");
-export let bLabel = document.querySelector(".b-label");
-
-export let aSlider = document.querySelector(".a-slider");
-export let bSlider = document.querySelector(".b-slider");
-
 export let sliderCanvasShare = 1/6;
+
 
 if (window.innerWidth/window.innerHeight > (16/9)) {
     sliderContainer.setAttribute("style", "width:" + (window.innerHeight*(16/9) * sliderCanvasShare).toString() + "px;" + "height:" + (window.innerHeight).toString() + "px;");
