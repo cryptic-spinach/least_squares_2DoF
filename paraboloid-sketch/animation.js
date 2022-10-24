@@ -52,7 +52,7 @@ export let paraboloid_sketch = myp5 => {
     }
     
     myp5.draw = () => {
-      myp5.background("#131626");
+      myp5.background("#262b47");
       myp5.graphics.clear();
 
       myp5.graphics.camera(0, 500, 200)
@@ -165,6 +165,7 @@ export let paraboloid_sketch = myp5 => {
     }
     
     function DashedLine(X1,Y1,Z1,X2,Y2,Z2) {
+      
       myp5.graphics.push();
       let d = 5; //dashed line length
       let P1 = myp5.graphics.createVector(X1,Y1,Z1); //point 1
