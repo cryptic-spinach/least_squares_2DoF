@@ -135,6 +135,15 @@ export let paraboloid_sketch = myp5 => {
       // DashedLine(a_val,0,0,a_val,b_val,0); //dashed line
       // DashedLine(0,b_val,0,a_val,b_val,0); //dashed line
 
+      myp5.graphics.push();
+      myp5.graphics.stroke('White');
+      myp5.graphics.strokeWeight(1);
+      myp5.graphics.line(a_val, b_val, 0, a_val, b_val, f); //dashed line
+      myp5.graphics.line(a_val,0,0,a_val,b_val,0); //dashed line
+      myp5.graphics.line(0,b_val,0,a_val,b_val,0); //dashed line
+      myp5.graphics.pop();
+
+
       drawLabel(170,0,0,"a");
       drawLabel(0,170,0,"b");
       drawLabel(0,0,240,"Error");
