@@ -32,6 +32,8 @@ export let sketch_1DoF = myp5 => {
       myp5.createCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
     }
 
+    myp5.pixelDensity(1);
+
     myp5.graphics = myp5.createGraphics(1920 * canvasShare, 1080);
 
     centerX = 1920 * canvasShare /2;

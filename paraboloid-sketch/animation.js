@@ -36,6 +36,8 @@ export let paraboloid_sketch = myp5 => {
         myp5.createCanvas(myp5.windowWidth * canvasShare, myp5.windowWidth/(16/9));
       }
 
+      myp5.pixelDensity(1);
+
       myp5.graphics = myp5.createGraphics(myp5.width, myp5.height, myp5.WEBGL);
     
       myp5.graphics.angleMode(myp5.DEGREES);
