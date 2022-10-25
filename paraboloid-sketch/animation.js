@@ -54,7 +54,7 @@ export let paraboloid_sketch = myp5 => {
     }
     
     myp5.draw = () => {
-      myp5.background("#262b47");
+      myp5.background("#131626");
       myp5.graphics.clear();
 
       myp5.graphics.camera(0, 500, 200)
