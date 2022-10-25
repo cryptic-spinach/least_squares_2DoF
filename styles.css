@@ -89,12 +89,12 @@ input[type="range"]::-moz-range-thumb {
 @container (max-width: 150px) {
     .a-label {
         color: #7d2100;
-        font-size: 15px;
+        font-size: 14px;
     }
     
     .b-label {
         color: #7d2100;
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
