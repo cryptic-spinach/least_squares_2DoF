@@ -74,26 +74,30 @@ input[type="range"]::-moz-range-thumb {
     outline: none;
   }
 
+.a-label {
+    color: #7d2100;
+}
+
+.b-label {
+    color: #7d2100;
+}
+
 @container (min-width: 150px) {
     .a-label {
-        color: #7d2100;
         font-size: 32px;
     }
     
     .b-label {
-        color: #7d2100;
         font-size: 32px;
     }
 }
 
 @container (max-width: 150px) {
     .a-label {
-        color: #7d2100;
         font-size: 13px;
     }
     
     .b-label {
-        color: #7d2100;
         font-size: 13px;
     }
 }
